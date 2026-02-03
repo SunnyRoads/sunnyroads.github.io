@@ -31,16 +31,13 @@ body {
 /* Hero */
 .hero {
   text-align: center;
-  margin-top: 0; /* remove any extra top margin */
 }
 
 .logo {
-  display: block;  /* ensures no inline spacing */
   max-width: 200px;
-  margin: 0 auto 20px; /* top margin removed, bottom 20px */
+  margin-bottom: 20px;
 }
 
-/* Hero text */
 .hero h1 {
   font-size: 34px;
   margin-bottom: 15px;
@@ -180,34 +177,4 @@ body {
 .side-menu a:hover {
   background: #333;
   border-radius: 12px;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    padding: 40px 15px;
-  }
-
-  .section {
-    padding: 30px 20px;
-  }
-
-  .tour {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .tour-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .tour-cta {
-    width: 100%;
-  }
-
-  .logo {
-    max-width: 150px;
-  }
 }
