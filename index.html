@@ -1,118 +1,92 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SunnyRoads Adventures</title>
 
-/* Page background – tropical ocean */
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(
-    180deg,
-    #2ec4c6,
-    #1fa2a6,
-    #1b8f8b
-  );
-  color: #333;
-}
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+<body>
 
-/* Layout */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
+  <main class="container">
 
-/* Section spacing */
-.section {
-  margin-bottom: 50px;
-}
+    <!-- HERO SECTION -->
+    <section class="section hero">
+      <img src="sunnyroads.gif" alt="SunnyRoads Logo" class="logo" />
+      <h1>SunnyRoads Adventures</h1>
+      <p>
+        Discover Nicaragua in a relaxed, safe, and personal way.<br />
+        Private tours, transport, and local experiences.
+      </p>
+    </section>
 
-/* Section background – warm beach gold */
-.section {
-  background: #f4e4b6;
-  padding: 40px 25px;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+    <!-- TOURS SECTION -->
+    <section class="section tours">
+      <h2>Our Tours</h2>
 
-/* Hero */
-.hero {
-  text-align: center;
-}
+      <div class="tour">
+        <h3>🌋 Volcano Experience</h3>
+        <p>
+          Visit Nicaragua’s iconic volcanoes with breathtaking views,
+          short hikes, and local stories.
+        </p>
+      </div>
 
-.logo {
-  max-width: 200px;
-  margin-bottom: 20px;
-}
+      <div class="tour">
+        <h3>🏖 Beach Escape</h3>
+        <p>
+          Relax on warm beaches, swim in crystal waters,
+          and enjoy laid-back coastal vibes.
+        </p>
+      </div>
 
-.hero h1 {
-  font-size: 34px;
-  margin-bottom: 15px;
-}
+      <div class="tour">
+        <h3>🚤 Boat & Island Tour</h3>
+        <p>
+          Explore islands and lakes by boat with peaceful scenery
+          and wildlife along the way.
+        </p>
+      </div>
 
-.hero p {
-  font-size: 18px;
-  line-height: 1.6;
-}
+      <div class="tour">
+        <h3>🏘 Cultural Village Tour</h3>
+        <p>
+          Walk through colorful towns, meet locals,
+          and experience authentic Nicaraguan life.
+        </p>
+      </div>
 
-/* Tours */
-.tours h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
-}
+      <div class="tour">
+        <h3>🍺 Food & Drinks Experience</h3>
+        <p>
+          Taste local food, fresh coffee, cold beers,
+          and hidden favorite spots.
+        </p>
+      </div>
+    </section>
 
-.tour {
-  margin-bottom: 28px; /* MORE SPACE between tours */
-}
+  </main>
 
-.tour h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
+  <!-- WhatsApp Floating Button (RIGHT) -->
+  <a
+    href="https://wa.me/50558365522"
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Chat on WhatsApp"
+  >
+    WhatsApp
+  </a>
 
-.tour p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.5;
-}
+  <!-- Facebook Floating Button (LEFT) -->
+  <a
+    href="https://www.facebook.com/share/16vToSF7Mu/"
+    class="facebook-float"
+    target="_blank"
+    aria-label="Visit us on Facebook"
+  >
+    Facebook
+  </a>
 
-/* WhatsApp Button (RIGHT) */
-.whatsapp-float {
-  position: fixed;
-  right: 20px;
-  bottom: 25px;
-  background: #25D366;
-  color: white;
-  padding: 18px 26px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  z-index: 1000;
-}
-
-/* Facebook Button (LEFT) */
-.facebook-float {
-  position: fixed;
-  left: 20px;
-  bottom: 25px;
-  background: #1877F2;
-  color: white;
-  padding: 18px 26px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  z-index: 1000;
-}
-
-/* Hover effects */
-.whatsapp-float:hover,
-.facebook-float:hover {
-  transform: scale(1.06);
-}
+</body>
+</html>
