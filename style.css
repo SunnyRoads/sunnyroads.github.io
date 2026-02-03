@@ -178,3 +178,43 @@ body {
   background: #333;
   border-radius: 12px;
 }
+/* MOBILE OPTIMIZATION – MOST IMPORTANT STEP */
+@media (max-width: 600px) {
+
+  .container {
+    padding: 40px 15px;
+  }
+
+  .section {
+    padding: 30px 20px;
+  }
+
+  .tour {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tour-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tour h3 {
+    font-size: 18px;
+  }
+
+  .tour p {
+    font-size: 15px;
+  }
+
+  .tour-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .hamburger {
+    font-size: 36px;
+  }
+}
