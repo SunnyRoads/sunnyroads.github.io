@@ -1,92 +1,100 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SunnyRoads Adventures</title>
 
-/* Page styling */
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #333;
-}
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-/* Layout */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
+  <main class="container">
 
-/* Hero */
-.hero {
-  text-align: center;
-  background: white;
-  padding: 40px 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+    <!-- HERO -->
+    <section class="hero section">
+      <img src="sunnyroads.gif" alt="SunnyRoads Logo" class="logo" />
+      <h1>SunnyRoads Adventures</h1>
+      <p>
+        Discover Nicaragua in a relaxed, safe, and personal way.
+        Private tours, transport, and authentic local experiences.
+      </p>
+    </section>
 
-.logo {
-  max-width: 200px;
-  margin-bottom: 15px;
-}
+    <!-- TOURS -->
+    <section class="tours section">
+      <h2>Tours & Services</h2>
 
-/* Tours */
-.tours {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+      <div class="tour">
+        <h3>🌅 Popoyo Sunset Tour</h3>
+        <p>Relaxed evening trip to experience one of Nicaragua’s best sunsets.</p>
+      </div>
 
-.tours h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+      <div class="tour">
+        <h3>⛴ Ometepe Ferry Pickup & Drop-off</h3>
+        <p>Stress-free transport to and from the ferry, plus local tips.</p>
+      </div>
 
-.tour {
-  margin-bottom: 18px;
-}
+      <div class="tour">
+        <h3>🏝 Multi-day Ometepe Island Exploration</h3>
+        <p>Beaches, volcanoes, villages, and hidden spots.</p>
+      </div>
 
-.tour h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
+      <div class="tour">
+        <h3>🌋 Volcano & Nature Tours</h3>
+        <p>Volcanoes, nature reserves, and scenic viewpoints.</p>
+      </div>
 
-.tour p {
-  font-size: 15px;
-  color: #555;
-}
+      <div class="tour">
+        <h3>🏛 City & Cultural Tours</h3>
+        <p>Local culture, history, food, and daily life.</p>
+      </div>
 
-/* Floating WhatsApp */
-.whatsapp-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #25D366;
-  color: white;
-  padding: 14px 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
+      <div class="tour">
+        <h3>☕ Coffee Farm Experiences</h3>
+        <p>Learn how Nicaraguan coffee is grown and produced.</p>
+      </div>
 
-/* Floating Facebook */
-.facebook-float {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  background: #1877F2;
-  color: white;
-  padding: 14px 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
+      <div class="tour">
+        <h3>🎣 Fishing Tours</h3>
+        <p>Local fishing experiences for beginners and enthusiasts.</p>
+      </div>
+
+      <div class="tour">
+        <h3>✈ Airport Pickup & Transportation</h3>
+        <p>Safe, reliable transport to your destination.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🍻 Club / Bar Hangout & Wingman</h3>
+        <p>Local nightlife and relaxed social company.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🧭 Custom Private Adventures</h3>
+        <p>Tell us what you want — we plan it together.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- WhatsApp Floating Button (RIGHT) -->
+  <a
+    href="https://wa.me/50558365522"
+    class="whatsapp-float"
+    target="_blank"
+  >
+    WhatsApp
+  </a>
+
+  <!-- Facebook Floating Button (LEFT) -->
+  <a
+    href="https://www.facebook.com/share/16vToSF7Mu/"
+    class="facebook-float"
+    target="_blank"
+  >
+    Facebook
+  </a>
+
+</body>
+</html>
