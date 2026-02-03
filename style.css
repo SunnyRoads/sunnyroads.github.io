@@ -1,25 +1,25 @@
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Page background */
+/* BACKGROUND */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #2ec4c6, #1fa2a6, #1b8f8b);
   color: #333;
 }
 
-/* Layout */
+/* LAYOUT */
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 60px 20px;
 }
 
-/* Sections */
+/* SECTIONS */
 .section {
   background: #f4e4b6;
   padding: 40px 25px;
@@ -28,14 +28,9 @@ body {
   margin-bottom: 50px;
 }
 
-/* Hero */
+/* HERO */
 .hero {
   text-align: center;
-}
-
-.logo {
-  max-width: 200px;
-  margin-bottom: 20px;
 }
 
 .hero h1 {
@@ -48,7 +43,7 @@ body {
   line-height: 1.6;
 }
 
-/* Tours */
+/* TOURS */
 .tours h2 {
   text-align: center;
   font-size: 28px;
@@ -67,56 +62,44 @@ body {
 .tour p {
   font-size: 16px;
   color: #555;
-  line-height: 1.5;
 }
 
-/* Subtle booking button */
-.tour-cta {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 18px;
-  background: #e6d18a;
-  color: #1b1b1b;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 18px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.tour-cta:hover {
-  background: #d8c375;
-  transform: translateY(-1px);
-}
-
-/* Main booking section */
+/* BOOKING CTA */
 .tour-booking {
   margin-top: 40px;
   padding-top: 25px;
-  border-top: 1px solid rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(0,0,0,0.2);
   text-align: center;
 }
 
 .tour-booking p {
-  font-size: 16px;
   margin-bottom: 14px;
-  color: #444;
+  font-size: 16px;
 }
 
-.main-booking {
+.tour-cta {
+  display: inline-block;
   padding: 10px 22px;
+  background: #e6d18a;
+  color: #1b1b1b;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 18px;
 }
 
-/* Floating buttons */
+.tour-cta:hover {
+  background: #d8c375;
+}
+
+/* FLOATING BUTTONS */
 .whatsapp-float,
 .facebook-float {
   position: fixed;
   bottom: 25px;
   padding: 16px 24px;
   border-radius: 50px;
-  font-size: 16px;
-  font-weight: bold;
   color: white;
+  font-weight: bold;
   text-decoration: none;
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
   z-index: 1000;
@@ -132,7 +115,7 @@ body {
   background: #1877F2;
 }
 
-/* Hamburger menu */
+/* HAMBURGER */
 .hamburger {
   position: fixed;
   top: 20px;
@@ -143,7 +126,7 @@ body {
   z-index: 1001;
 }
 
-/* Side menu */
+/* SIDE MENU */
 .side-menu {
   position: fixed;
   top: 0;
@@ -151,12 +134,11 @@ body {
   width: 200px;
   height: 100%;
   background: #1b1b1b;
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
-  padding-top: 80px;
   gap: 20px;
   transition: left 0.3s ease;
-  z-index: 1000;
 }
 
 .side-menu.open {
@@ -175,7 +157,7 @@ body {
   border-radius: 12px;
 }
 
-/* Mobile optimization */
+/* MOBILE */
 @media (max-width: 600px) {
   .container {
     padding: 40px 15px;
@@ -189,12 +171,7 @@ body {
     text-align: center;
   }
 
-  .tour-booking p {
-    font-size: 15px;
-  }
-
   .tour-cta {
     width: 100%;
-    text-align: center;
   }
 }
