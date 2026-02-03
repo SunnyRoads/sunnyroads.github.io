@@ -9,7 +9,9 @@
 <body>
 
   <!-- HAMBURGER BUTTON -->
-  <div class="hamburger" id="hamburger">☰</div>
+  <div class="hamburger" id="hamburger">
+    ☰
+  </div>
 
   <!-- SIDE MENU -->
   <nav class="side-menu" id="sideMenu">
@@ -22,18 +24,22 @@
 
     <!-- HERO -->
     <section class="section hero">
-      <img src="sunnyroads.gif" alt="SunnyRoads Logo" class="logo">
-      <h1>SunnyRoads Adventures</h1>
-      <p>
-        Discover Nicaragua in a relaxed, safe, and personal way.<br>
-        Private tours, transport, and authentic local experiences.
-      </p>
+      <!-- VIDEO BACKGROUND -->
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay">
+        <img src="sunnyroads.gif" alt="SunnyRoads Logo" class="logo">
+        <h1>SunnyRoads Adventures</h1>
+        <p>Discover Nicaragua in a relaxed, safe, and personal way.<br>Private tours, transport, and authentic local experiences.</p>
+      </div>
     </section>
 
     <!-- TOURS -->
     <section class="section tours" id="tours">
       <h2>Our Tours & Services</h2>
 
+      <!-- Tours with icons only -->
       <div class="tour">
         <h3>✈ Airport Pickup & Transportation</h3>
         <p>Safe, reliable transport to your destination.</p>
@@ -84,11 +90,8 @@
         <p>Volcano hikes, nature reserves, and scenic viewpoints.</p>
       </div>
 
-      <!-- Single booking button under all tours -->
-      <div class="book-now-container">
-        <a href="https://wa.me/50558365522" class="tour-cta" target="_blank">Book Your Adventure Now</a>
-      </div>
-
+      <!-- Single Booking Button -->
+      <a href="https://wa.me/50558365522" class="tour-cta" target="_blank">Book Your Adventure</a>
     </section>
 
     <!-- CONTACT -->
