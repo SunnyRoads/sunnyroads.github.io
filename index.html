@@ -1,136 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SunnyRoads Adventures</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Roads Tours</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HAMBURGER BUTTON -->
-  <div class="hamburger" id="hamburger">☰</div>
+    <!-- HAMBURGER MENU -->
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-  <!-- SIDE MENU -->
-  <nav class="side-menu" id="sideMenu">
-    <a href="#home">Home</a>
-    <a href="#tours">Tours</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <!-- SIDE MENU -->
+    <nav class="side-menu" id="sideMenu">
+        <a href="#hero">Home</a>
+        <a href="#tours">Tours</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-  <main class="container" id="home">
+    <!-- MAIN CONTAINER -->
+    <div class="container">
 
-    <!-- HERO -->
-    <section class="section hero">
-      <!-- SMALL LOGO TOP -->
-      <img src="./sunnyroads.gif" alt="SunnyRoads Logo" class="logo">
+        <!-- HERO SECTION -->
+        <section class="section hero" id="hero">
+            <img src="SunnyRoads.gif" alt="Sunny Roads Logo" class="logo">
+            <h1>Welcome to Sunny Roads Tours</h1>
+            <p>Explore the world with our specially curated tours! Adventure, relaxation, and memories await you.</p>
+        </section>
 
-      <!-- MAIN HERO IMAGE -->
-      <img src="./SunnyRoads.gif" alt="SunnyRoads Adventures" class="hero-main-img">
+        <!-- TOURS SECTION -->
+        <section class="section tours" id="tours">
+            <h2>Our Popular Tours</h2>
 
-      <h1>SunnyRoads Adventures</h1>
-      <p>
-        Discover Nicaragua in a relaxed, safe, and personal way.<br>
-        Private tours, transport, and authentic local experiences.
-      </p>
-    </section>
+            <div class="tour">
+                <h3>Tropical Paradise Escape</h3>
+                <p>Relax on sunny beaches and enjoy crystal-clear waters in a tropical paradise.</p>
+            </div>
 
-    <!-- TOURS -->
-    <section class="section tours" id="tours">
-      <h2>Our Tours & Services</h2>
+            <div class="tour">
+                <h3>Mountain Adventure Trek</h3>
+                <p>Experience breathtaking views, thrilling hikes, and the beauty of nature.</p>
+            </div>
 
-      <div class="tour">
-        <h3>✈ Airport Pickup & Transportation</h3>
-        <p>Safe, reliable transport to your destination.</p>
-      </div>
+            <div class="tour">
+                <h3>Cultural City Discovery</h3>
+                <p>Explore historic cities, local traditions, and vibrant nightlife on this cultural journey.</p>
+            </div>
 
-      <div class="tour">
-        <h3>🍻 Bar & Club Hangout (Wingman)</h3>
-        <p>Relaxed nightlife experience with a local companion.</p>
-      </div>
+            <!-- BOOKING CTA -->
+            <div class="tour-booking" id="booking">
+                <p>Ready to book your adventure?</p>
+                <a href="#contact" class="tour-cta">Book Now</a>
+            </div>
+        </section>
 
-      <div class="tour">
-        <h3>☕ Coffee Farm Experience</h3>
-        <p>Visit local farms and learn how Nicaraguan coffee is made.</p>
-      </div>
+    </div>
 
-      <div class="tour">
-        <h3>🧭 Custom Private Adventures</h3>
-        <p>You choose the idea — we plan it together.</p>
-      </div>
+    <!-- FLOATING BUTTONS -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">WhatsApp</a>
+    <a href="https://facebook.com" class="facebook-float" target="_blank">Facebook</a>
 
-      <div class="tour">
-        <h3>🎣 Fishing Tours</h3>
-        <p>Local fishing trips for beginners and enthusiasts.</p>
-      </div>
-
-      <div class="tour">
-        <h3>⛴ Ometepe Ferry Pickup & Drop-off</h3>
-        <p>Stress-free ferry transfers plus local recommendations.</p>
-      </div>
-
-      <div class="tour">
-        <h3>🏝 Ometepe Island Exploration (Multi-day)</h3>
-        <p>Beaches, volcanoes, villages, and hidden spots.</p>
-      </div>
-
-      <div class="tour">
-        <h3>🏛 City & Cultural Tours</h3>
-        <p>Explore history, food, culture, and daily life.</p>
-      </div>
-
-      <div class="tour">
-        <h3>🌅 Popoyo Sunset Tour</h3>
-        <p>One of Nicaragua’s most beautiful sunset experiences.</p>
-      </div>
-
-      <div class="tour">
-        <h3>🌋 Volcano & Nature Tours</h3>
-        <p>Volcano hikes, nature reserves, and scenic viewpoints.</p>
-      </div>
-
-      <!-- SINGLE BOOKING CTA -->
-      <div class="tour-booking">
-        <p>
-          Interested in any of these experiences?<br>
-          Message us and we’ll plan the perfect option for you.
-        </p>
-        <a href="https://wa.me/50558365522" target="_blank" class="tour-cta">
-          Contact us on WhatsApp
-        </a>
-      </div>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <h2>Contact</h2>
-      <p>
-        Message us anytime on WhatsApp or Facebook to plan your adventure.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- FLOATING BUTTONS -->
-  <a href="https://www.facebook.com/share/16vToSF7Mu/" class="facebook-float" target="_blank">Facebook</a>
-  <a href="https://wa.me/50558365522" class="whatsapp-float" target="_blank">WhatsApp</a>
-
-  <!-- MENU SCRIPT -->
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const menu = document.getElementById("sideMenu");
-
-    hamburger.addEventListener("click", () => {
-      menu.classList.toggle("open");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-        menu.classList.remove("open");
-      }
-    });
-  </script>
+    <!-- SCRIPTS -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
 
 </body>
 </html>
