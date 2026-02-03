@@ -1,143 +1,139 @@
-/* RESET */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY – tropical ocean background */
+/* Page background – tropical ocean */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #2ec4c6, #1fa2a6, #1b8f8b);
-  color: #2b2b2b;
+  color: #333;
 }
 
-/* CONTAINER */
+/* Container */
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 60px 20px;
 }
 
-/* SECTIONS */
+/* Section styling */
 .section {
-  background: #f4e4b6; /* beach gold */
-  padding: 40px 30px;
-  margin-bottom: 60px;
+  background: #f4e4b6; /* warm beach gold */
+  padding: 40px 25px;
+  margin-bottom: 50px;
   border-radius: 18px;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* HERO */
+/* Hero */
 .hero {
   text-align: center;
 }
-
 .logo {
-  max-width: 220px;
-  margin-bottom: 25px;
+  max-width: 200px;
+  margin-bottom: 20px;
 }
-
 .hero h1 {
-  font-size: 36px;
+  font-size: 34px;
   margin-bottom: 15px;
 }
-
 .hero p {
   font-size: 18px;
   line-height: 1.6;
 }
 
-/* TOURS */
+/* Tours */
 .tours h2 {
   text-align: center;
   font-size: 28px;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
-
 .tour {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
-
 .tour h3 {
   font-size: 20px;
   margin-bottom: 8px;
 }
-
 .tour p {
   font-size: 16px;
-  color: #444;
+  color: #555;
   line-height: 1.5;
 }
 
-/* HAMBURGER */
+/* Hamburger menu */
 .hamburger {
   position: fixed;
   top: 20px;
   left: 20px;
   font-size: 28px;
-  background: #000;
-  color: gold;
-  padding: 10px 14px;
-  border-radius: 8px;
   cursor: pointer;
-  z-index: 2000;
+  z-index: 1001;
+  color: #000; /* black */
+  background: #f4e4b6; /* goldish */
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* SIDE MENU */
+/* Side menu */
 .side-menu {
   position: fixed;
   top: 0;
-  left: -220px;
-  width: 200px;
+  left: -250px;
+  width: 230px;
   height: 100%;
-  background: #000;
+  background: #f4e4b6;
   padding-top: 80px;
+  box-shadow: 3px 0 12px rgba(0,0,0,0.3);
   transition: left 0.3s ease;
-  z-index: 1500;
+  z-index: 1000;
 }
-
-.side-menu a {
-  display: block;
-  color: gold;
-  text-decoration: none;
-  padding: 15px 20px;
-  font-size: 18px;
-}
-
-.side-menu a:hover {
-  background: rgba(255, 215, 0, 0.15);
-}
-
 .side-menu.open {
   left: 0;
 }
+.side-menu a {
+  display: block;
+  padding: 15px 20px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+.side-menu a:hover {
+  background: #e6d49a;
+}
 
-/* FLOATING BUTTONS */
-.whatsapp-float,
-.facebook-float {
+/* Floating buttons */
+.whatsapp-float {
   position: fixed;
+  right: 20px;
   bottom: 25px;
+  background: #25D366;
+  color: white;
   padding: 18px 26px;
   border-radius: 50px;
   font-size: 18px;
   font-weight: bold;
-  color: white;
   text-decoration: none;
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  z-index: 1200;
+  z-index: 1000;
 }
-
-.whatsapp-float {
-  right: 25px;
-  background: #25D366;
-}
-
 .facebook-float {
-  left: 25px;
+  position: fixed;
+  left: 20px;
+  bottom: 25px;
   background: #1877F2;
+  color: white;
+  padding: 18px 26px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
-
 .whatsapp-float:hover,
 .facebook-float:hover {
   transform: scale(1.06);
