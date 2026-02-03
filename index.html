@@ -1,100 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SunnyRoads Adventures</title>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* Page background – tropical ocean */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    180deg,
+    #2ec4c6,
+    #1fa2a6,
+    #1b8f8b
+  );
+  color: #333;
+}
 
-  <main class="container">
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
 
-    <!-- HERO -->
-    <section class="hero section">
-      <img src="sunnyroads.gif" alt="SunnyRoads Logo" class="logo" />
-      <h1>SunnyRoads Adventures</h1>
-      <p>
-        Discover Nicaragua in a relaxed, safe, and personal way.
-        Private tours, transport, and authentic local experiences.
-      </p>
-    </section>
+/* Section spacing */
+.section {
+  margin-bottom: 50px;
+}
 
-    <!-- TOURS -->
-    <section class="tours section">
-      <h2>Tours & Services</h2>
+/* Section background – warm beach gold */
+.section {
+  background: #f4e4b6;
+  padding: 40px 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-      <div class="tour">
-        <h3>🌅 Popoyo Sunset Tour</h3>
-        <p>Relaxed evening trip to experience one of Nicaragua’s best sunsets.</p>
-      </div>
+/* Hero */
+.hero {
+  text-align: center;
+}
 
-      <div class="tour">
-        <h3>⛴ Ometepe Ferry Pickup & Drop-off</h3>
-        <p>Stress-free transport to and from the ferry, plus local tips.</p>
-      </div>
+.logo {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
 
-      <div class="tour">
-        <h3>🏝 Multi-day Ometepe Island Exploration</h3>
-        <p>Beaches, volcanoes, villages, and hidden spots.</p>
-      </div>
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 15px;
+}
 
-      <div class="tour">
-        <h3>🌋 Volcano & Nature Tours</h3>
-        <p>Volcanoes, nature reserves, and scenic viewpoints.</p>
-      </div>
+.hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
 
-      <div class="tour">
-        <h3>🏛 City & Cultural Tours</h3>
-        <p>Local culture, history, food, and daily life.</p>
-      </div>
+/* Tours */
+.tours h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
 
-      <div class="tour">
-        <h3>☕ Coffee Farm Experiences</h3>
-        <p>Learn how Nicaraguan coffee is grown and produced.</p>
-      </div>
+.tour {
+  margin-bottom: 28px; /* MORE SPACE between tours */
+}
 
-      <div class="tour">
-        <h3>🎣 Fishing Tours</h3>
-        <p>Local fishing experiences for beginners and enthusiasts.</p>
-      </div>
+.tour h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
 
-      <div class="tour">
-        <h3>✈ Airport Pickup & Transportation</h3>
-        <p>Safe, reliable transport to your destination.</p>
-      </div>
+.tour p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
 
-      <div class="tour">
-        <h3>🍻 Club / Bar Hangout & Wingman</h3>
-        <p>Local nightlife and relaxed social company.</p>
-      </div>
+/* WhatsApp Button (RIGHT) */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  background: #25D366;
+  color: white;
+  padding: 18px 26px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  z-index: 1000;
+}
 
-      <div class="tour">
-        <h3>🧭 Custom Private Adventures</h3>
-        <p>Tell us what you want — we plan it together.</p>
-      </div>
-    </section>
+/* Facebook Button (LEFT) */
+.facebook-float {
+  position: fixed;
+  left: 20px;
+  bottom: 25px;
+  background: #1877F2;
+  color: white;
+  padding: 18px 26px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  z-index: 1000;
+}
 
-  </main>
-
-  <!-- WhatsApp Floating Button (RIGHT) -->
-  <a
-    href="https://wa.me/50558365522"
-    class="whatsapp-float"
-    target="_blank"
-  >
-    WhatsApp
-  </a>
-
-  <!-- Facebook Floating Button (LEFT) -->
-  <a
-    href="https://www.facebook.com/share/16vToSF7Mu/"
-    class="facebook-float"
-    target="_blank"
-  >
-    Facebook
-  </a>
-
-</body>
-</html>
+/* Hover effects */
+.whatsapp-float:hover,
+.facebook-float:hover {
+  transform: scale(1.06);
+}
