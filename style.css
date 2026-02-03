@@ -11,10 +11,18 @@ body {
   line-height: 1.6;
 }
 
+/* HERO */
 .hero {
-  background: #ffcc66;
+  background: linear-gradient(180deg, #ffd27d, #fff3d9);
   padding: 60px 20px;
   text-align: center;
+}
+
+.logo {
+  width: 220px;
+  max-width: 80%;
+  display: block;
+  margin: 0 auto 20px auto;
 }
 
 .hero h1 {
@@ -26,6 +34,7 @@ body {
   font-size: 1.1rem;
 }
 
+/* CONTENT */
 .content {
   max-width: 800px;
   margin: 40px auto;
@@ -41,6 +50,7 @@ body {
   font-size: 1.4rem;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
