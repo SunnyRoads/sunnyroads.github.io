@@ -5,11 +5,17 @@
   box-sizing: border-box;
 }
 
-/* Page background – tropical ocean */
+/* Page background starts dark for smooth transition */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #2ec4c6, #1fa2a6, #1b8f8b);
+  background: linear-gradient(180deg, #000000, #000000);
   color: #333;
+  transition: background 2.5s ease; /* smooth fade-in from intro */
+}
+
+/* After page load, we can add a class to fade to main gradient */
+body.loaded {
+  background: linear-gradient(180deg, #2ec4c6, #1fa2a6, #1b8f8b);
 }
 
 /* Layout */
@@ -48,47 +54,37 @@ body {
   line-height: 1.6;
 }
 
-/* Tours Section */
+/* Tours */
 .tours h2 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 30px;
 }
 
-/* Each tour block */
 .tour {
   display: flex;
-  flex-direction: column; /* stack icon, title, description vertically */
-  align-items: center;    /* center horizontally */
-  text-align: center;     /* center text inside each tour */
-  gap: 12px;              /* spacing between icon, title, description */
-  margin-bottom: 40px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
-/* Tour icon */
-.tour-img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain; /* keep icon aspect ratio */
-}
-
-/* Tour title */
 .tour h3 {
   font-size: 20px;
-  margin: 0;
+  margin-bottom: 8px;
 }
 
-/* Tour description */
 .tour p {
   font-size: 16px;
   color: #555;
   line-height: 1.5;
 }
 
-/* Single Booking button below all tours */
+/* Tour CTA buttons */
 .tour-cta {
   display: inline-block;
-  margin: 30px auto 0 auto; /* centered below all tours */
+  margin-top: 12px;
   padding: 12px 24px;
   background: #f4c742;   /* gold */
   color: #1b1b1b;
@@ -138,47 +134,4 @@ body {
 .whatsapp-float:hover,
 .facebook-float:hover {
   transform: scale(1.06);
-}
-
-/* Hamburger menu */
-.hamburger {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-size: 32px;
-  color: #f4c742; /* gold */
-  cursor: pointer;
-  z-index: 1001;
-}
-
-/* Side menu */
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -220px;
-  width: 200px;
-  height: 100%;
-  background: #1b1b1b;
-  display: flex;
-  flex-direction: column;
-  padding-top: 80px;
-  gap: 20px;
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-
-.side-menu.open {
-  left: 0;
-}
-
-.side-menu a {
-  color: #f4c742;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 10px 20px;
-}
-
-.side-menu a:hover {
-  background: #333;
-  border-radius: 12px;
 }
