@@ -1,17 +1,10 @@
-const lavaButton = document.getElementById("lavaButton");
-
-// Show button after 6 seconds
+// Show coffee at 7 seconds
 setTimeout(() => {
-  lavaButton.style.opacity = "1";
-  lavaButton.style.pointerEvents = "auto";
-}, 6000);
+  const coffeeLayer = document.querySelector('.coffee');
+  coffeeLayer.classList.add('show');
+}, 7000);
 
-// Manual click → go to main site
-lavaButton.addEventListener("click", () => {
-  window.location.href = "main.html";
-});
-
-// Auto redirect after 13 seconds
+// Auto redirect at 12 seconds
 setTimeout(() => {
-  window.location.href = "main.html";
-}, 13000);
+  window.location.href = 'main.html';
+}, 12000);
