@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- HAMBURGER BUTTON -->
+  <!-- HAMBURGER -->
   <div class="hamburger" id="hamburger">☰</div>
 
   <!-- SIDE MENU -->
@@ -21,7 +21,7 @@
   <main class="container" id="home">
 
     <!-- HERO -->
-    <section class="section hero">
+    <section class="hero">
       <video autoplay muted loop playsinline class="hero-video">
         <source src="hero-video.mp4" type="video/mp4">
       </video>
@@ -40,10 +40,10 @@
     <section class="section tours" id="tours">
       <h2>Our Tours & Services</h2>
 
-      <div class="tour"><h3>✈ Airport Pickup & Transportation</h3></div>
-      <div class="tour"><h3>🍻 Bar & Club Hangout</h3></div>
-      <div class="tour"><h3>☕ Coffee Farm Experience</h3></div>
-      <div class="tour"><h3>🧭 Custom Private Adventures</h3></div>
+      <div class="tour">✈ Airport Pickup & Transportation</div>
+      <div class="tour">🍻 Bar & Club Hangout</div>
+      <div class="tour">☕ Coffee Farm Experience</div>
+      <div class="tour">🧭 Custom Private Adventures</div>
 
       <a href="https://wa.me/50558365522" class="tour-cta" target="_blank">
         Book Your Adventure
@@ -58,19 +58,18 @@
 
   </main>
 
-  <!-- SCRIPT -->
+  <!-- MENU SCRIPT -->
   <script>
     const hamburger = document.getElementById("hamburger");
     const menu = document.getElementById("sideMenu");
 
-    hamburger.addEventListener("click", () => {
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
       menu.classList.toggle("open");
     });
 
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-        menu.classList.remove("open");
-      }
+    document.addEventListener("click", () => {
+      menu.classList.remove("open");
     });
   </script>
 
