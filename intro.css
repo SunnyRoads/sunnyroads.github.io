@@ -26,9 +26,24 @@ body, html {
   align-items: center;
 }
 
+/* Volcano container: higher on the screen */
+#volcano-container {
+  top: 10%; /* Move volcano up */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Coffee container: lower on the screen */
+#coffee-container {
+  bottom: 10%; /* Move coffee cup down */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Video styling */
 .video-container video {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 60%;  /* Scale videos down */
+  max-height: 60%;
   object-fit: contain;
 }
 
