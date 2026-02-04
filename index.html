@@ -19,11 +19,12 @@
   </div>
 
   <script>
-    // Fade in coffee video at 7 seconds
+    // Fade in coffee cup and move it toward viewer at 7 seconds
     setTimeout(() => {
       document.getElementById('volcano-container').classList.add('fade-out');
-      document.getElementById('coffee-container').classList.remove('hidden');
-      document.getElementById('coffee-container').classList.add('fade-in');
+      const coffee = document.getElementById('coffee-container');
+      coffee.classList.remove('hidden');
+      coffee.classList.add('fade-in', 'move-forward');
     }, 7000);
 
     // Autoredirect after 12 seconds
