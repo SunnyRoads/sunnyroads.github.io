@@ -91,11 +91,11 @@
     // Play coffee immediately
     coffee.play().catch(()=>{});
 
-    // Show gold dot in last second of coffee video
+    // Show gold dot in last 1.5 seconds of coffee video (half second earlier)
     setTimeout(() => {
       goldDot.style.opacity = 1;
       goldDot.style.transform = "translate(-50%, -50%) scale(15)";
-    }, 3500); // coffee is 4s long
+    }, 3000); // now starts at 3s
 
     // At 4s: hide coffee, show sunrise
     setTimeout(() => {
