@@ -5,29 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunnyRoads Adventures</title>
 
-  <!-- UPDATED CSS FILE -->
+  <!-- IMPORTANT: make sure this filename matches your CSS exactly -->
   <link rel="stylesheet" href="style-v2.css">
 </head>
+
 <body>
 
   <!-- HAMBURGER BUTTON -->
-  <div class="hamburger" id="hamburger">
-    ☰
-  </div>
+  <div class="hamburger" id="hamburger">☰</div>
 
   <!-- SIDE MENU -->
   <nav class="side-menu" id="sideMenu">
-    <a href="#about">About</a>
+    <a href="#home">Home</a>
     <a href="#tours">Tours</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <main class="container">
+  <!-- GOLD BACKGROUND CONTAINER -->
+  <main class="container" id="home">
 
-    <!-- HERO / ABOUT -->
-    <section class="section hero" id="about">
-
-      <!-- VIDEO BACKGROUND -->
+    <!-- HERO SECTION -->
+    <section class="section hero">
       <video autoplay muted loop playsinline class="hero-video">
         <source src="hero-video.mp4" type="video/mp4">
       </video>
@@ -40,11 +38,10 @@
           Private tours, transport, and authentic local experiences.
         </p>
       </div>
-
     </section>
 
     <!-- TOURS -->
-    <section class="section tours" id="tours">
+    <section class="section" id="tours">
       <h2>Our Tours & Services</h2>
 
       <div class="tour">
@@ -99,38 +96,21 @@
 
       <!-- CENTERED BOOKING BUTTON -->
       <div class="booking-wrapper">
-        <a
-          href="https://wa.me/50558365522"
-          class="tour-cta"
-          target="_blank"
-        >
+        <a href="https://wa.me/50558365522" class="tour-cta" target="_blank">
           Book Your Adventure
         </a>
       </div>
-
     </section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
       <h2>Contact</h2>
-      <p>Message us anytime on WhatsApp or Facebook to plan your adventure.</p>
+      <p>
+        Message us anytime on WhatsApp or Facebook to plan your adventure.
+      </p>
     </section>
 
   </main>
-
-  <!-- FACEBOOK BUTTON -->
-  <a href="https://www.facebook.com/share/16vToSF7Mu/"
-     class="facebook-float"
-     target="_blank">
-    Facebook
-  </a>
-
-  <!-- WHATSAPP BUTTON -->
-  <a href="https://wa.me/50558365522"
-     class="whatsapp-float"
-     target="_blank">
-    WhatsApp
-  </a>
 
   <!-- MENU SCRIPT -->
   <script>
