@@ -1,12 +1,10 @@
-// Show coffee video and welcome sign at 7 seconds
+// Show coffee and welcome sign at 7 seconds
 setTimeout(() => {
-  const coffee = document.getElementById('coffeeVideo');
+  const coffee = document.getElementById('coffeeVideo').parentElement;
   const welcome = document.getElementById('welcomeSign');
 
-  coffee.style.transition = 'opacity 1.5s ease';
-  coffee.style.opacity = 1;
-
-  welcome.classList.add('show-welcome');
+  coffee.classList.add('show');       // Coffee slides up + fades in
+  welcome.classList.add('show-welcome'); // Welcome sign fades up
 }, 7000); // 7 seconds
 
 // Auto-redirect to main website at 12 seconds
