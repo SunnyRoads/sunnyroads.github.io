@@ -1,41 +1,75 @@
-/* Page setup */
-body {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  background-color: black; /* solid background below videos */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Videos styling */
-video {
-  display: block;
-  max-width: 100%;
+body {
+  background: black;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Volcano video in the center/middle of screen */
+.volcano-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.volcano-container video {
+  width: 100%;
+  max-width: 800px;
   height: auto;
+  object-fit: cover;
+}
+
+/* Coffee video initially hidden */
+.coffee-container {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  opacity: 0;
+  z-index: 2;
+  transition: all 1.5s ease;
+}
+
+.coffee-container.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.coffee-container video {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Welcome sign */
 #welcomeSign {
   position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 70%; /* will appear just above/beside coffee cup */
-  font-size: 32px;
-  font-family: 'Arial', sans-serif;
-  color: #FFD700; /* golden */
-  text-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  font-size: 2em;
+  font-weight: bold;
   opacity: 0;
-  pointer-events: none; /* ignore clicks */
-  transform: translateY(20px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  color: #f4c742;
+  transition: all 1.5s ease;
+  z-index: 3;
 }
 
-/* Animation class */
-.show-welcome {
+#welcomeSign.show-welcome {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
