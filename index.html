@@ -23,9 +23,6 @@
 
     video {
       position: absolute;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -35,6 +32,11 @@
 
     #coffeeVideo {
       display: block;
+    }
+
+    #sunriseVideo {
+      /* No scaling, let it play naturally */
+      display: none;
     }
 
     #fadeOverlay {
@@ -70,17 +72,13 @@
     const sunrise = document.getElementById("sunriseVideo");
     const fade = document.getElementById("fadeOverlay");
 
-    // Ensure videos start hidden/visible properly
-    coffee.style.display = "block";
-    sunrise.style.display = "none";
-
-    // Start coffee video immediately
+    // Coffee starts immediately
     coffee.play().catch(() => {});
 
-    // 4s: fade to black
+    // 4s: fade coffee to black
     setTimeout(() => fade.classList.add("visible"), 4000);
 
-    // 5.6s: switch to sunrise
+    // 5.6s: hide coffee, show sunrise naturally
     setTimeout(() => {
       coffee.style.display = "none";
       sunrise.style.display = "block";
@@ -88,10 +86,10 @@
       sunrise.play().catch(() => {});
     }, 5600);
 
-    // 10.1s: fade sunrise
+    // 10.1s: fade sunrise to black
     setTimeout(() => fade.classList.add("visible"), 10100);
 
-    // 12.6s: redirect to main website
+    // 12.6s: redirect to main page
     setTimeout(() => window.location.href = "main.html", 12600);
   </script>
 </body>
