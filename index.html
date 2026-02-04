@@ -67,28 +67,31 @@
     const sunrise = document.getElementById("sunriseVideo");
     const introContainer = document.getElementById("introContainer");
 
-    // Ensure coffee plays
     coffee.play().catch(() => {});
 
-    // After 4s: fade coffee out, fade sunrise in
+    // Step 1: Coffee fades out to black (4–4.5s)
     setTimeout(() => {
       coffee.style.opacity = 0;
+      setTimeout(() => coffee.style.display = "none", 500); // after fade complete
+    }, 4000);
+
+    // Step 2: Sunrise fades in from black (4.5–5.5s)
+    setTimeout(() => {
       sunrise.style.display = "block";
       sunrise.style.opacity = 1;
       sunrise.play().catch(() => {});
-      // After fade completes, hide coffee completely
-      setTimeout(() => coffee.style.display = "none", 1000);
-    }, 4000);
+    }, 4500);
 
-    // After 11s: fade introContainer out for smooth transition
+    // Step 3: Fade intro container to black for transition (11.5–12.5s)
     setTimeout(() => {
+      introContainer.style.transition = "opacity 1s ease";
       introContainer.style.opacity = 0;
-    }, 11000);
+    }, 11500);
 
-    // After 13s: redirect to main page
+    // Step 4: Redirect to main page after fade (12.5s)
     setTimeout(() => {
       window.location.href = "main.html";
-    }, 13000);
+    }, 12500);
   </script>
 </body>
 </html>
