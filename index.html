@@ -1,34 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SunnyRoads Intro</title>
-  <link rel="stylesheet" href="intro.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .intro-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    video {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Fade layer */
+    .fade-overlay {
+      position: absolute;
+      inset: 0;
+      background: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease;
+      z-index: 10;
+    }
+
+    .fade-overlay.visible {
+      opacity: 1;
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- VOLCANO VIDEO -->
-  <div class="video-layer">
-    <video
-      id="volcanoVideo"
-      src="intro-video/volcano.mp4"
-      autoplay
-      muted
-      playsinline
-    ></video>
+  <div class="intro-wrapper">
+    <!-- COFFEE VIDEO -->
+    <video id="coffeeVideo" autoplay muted playsinline>
+      <source src="intro-video/coffee.mp4" type="video/mp4">
+    </video>
+
+    <!-- SUNRISE VIDEO -->
+    <video id="sunriseVideo" muted playsinline style="display:none;">
+      <source src="intro-video/sunrise.mp4" type="video/mp4">
+    </video>
+
+    <div class="fade-overlay" id="fadeOverlay"></div>
   </div>
 
-  <<!-- COFFEE VIDEO -->
-<div class="video-layer coffee hidden">
-  <video
-    id="coffeeVideo"
-    src="intro-video/coffee.mp4"
-    muted
-    playsinline
-  ></video>
-</div>
+  <script>
+    const coffee = document.getElementById("coffeeVideo");
+    const sunrise = document.getElementById("sunriseVideo");
+    const fade = document.getElementById("fadeOverlay");
 
-  <script src="intro.js"></script>
-</body>
-</html>
+    /* TIMELINE */
+
+    // 0–4s coffee plays
+    // 4–5s fade to black
+    setTimeout(() => {
+      fade.classList.add("visible");
+    }, 4000);
+
+    // 5.6s start sunrise
+    setTimeout(() => {
+      coffee.style.display = "none";
+      sunrise.style.display = "block";
+      fade.classList.remove("visible");
+      sunrise.play();
+    }, 5600);
+
+    // 10.1s start fade out sunrise
+    setTimeout(() => {
