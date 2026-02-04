@@ -26,7 +26,6 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      display: none;
       z-index: 1;
     }
 
@@ -35,24 +34,8 @@
     }
 
     #sunriseVideo {
-      /* No scaling, let it play naturally */
       display: none;
-    }
-
-    #fadeOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      opacity: 0;
-      transition: opacity 1s ease;
-      z-index: 5;
-    }
-
-    #fadeOverlay.visible {
-      opacity: 1;
+      /* Let it play naturally, no scaling or overlay */
     }
   </style>
 </head>
@@ -64,33 +47,24 @@
   <!-- Sunrise Video -->
   <video id="sunriseVideo" src="intro-video/sunrise.mp4" muted playsinline></video>
 
-  <!-- Fade overlay for smooth transitions -->
-  <div id="fadeOverlay"></div>
-
   <script>
     const coffee = document.getElementById("coffeeVideo");
     const sunrise = document.getElementById("sunriseVideo");
-    const fade = document.getElementById("fadeOverlay");
 
-    // Coffee starts immediately
+    // Play coffee video immediately
     coffee.play().catch(() => {});
 
-    // 4s: fade coffee to black
-    setTimeout(() => fade.classList.add("visible"), 4000);
-
-    // 5.6s: hide coffee, show sunrise naturally
+    // 4s: hide coffee
     setTimeout(() => {
       coffee.style.display = "none";
       sunrise.style.display = "block";
-      fade.classList.remove("visible");
       sunrise.play().catch(() => {});
-    }, 5600);
+    }, 4000);
 
-    // 10.1s: fade sunrise to black
-    setTimeout(() => fade.classList.add("visible"), 10100);
-
-    // 12.6s: redirect to main page
-    setTimeout(() => window.location.href = "main.html", 12600);
+    // 10s: redirect to main page (adjust according to sunrise length)
+    setTimeout(() => {
+      window.location.href = "main.html";
+    }, 10000);
   </script>
 </body>
 </html>
