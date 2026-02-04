@@ -5,63 +5,82 @@
   box-sizing: border-box;
 }
 
-/* Full screen video */
-#introVideo {
+/* Fullscreen body */
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Video background */
+.bg-video {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -1; /* Behind everything */
+  filter: brightness(0.6); /* Darken slightly for text readability */
 }
 
-/* Overlay styling */
+/* Overlay content */
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay for contrast */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #f4c742;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  color: #fff;
   padding: 20px;
+  width: 90%;
+  max-width: 600px;
 }
 
-.overlay .logo {
+/* Logo */
+.logo {
   max-width: 200px;
   margin-bottom: 20px;
 }
 
+/* Headline */
 .overlay h1 {
   font-size: 36px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  animation: fadeSlide 1.5s ease forwards;
 }
 
+/* Subtext */
 .overlay p {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+  animation: fadeSlide 2s ease forwards;
 }
 
 /* Enter button */
 .enter-btn {
   display: inline-block;
-  padding: 14px 28px;
-  background: #f4c742;
-  color: #1b1b1b;
+  padding: 14px 32px;
+  font-size: 18px;
   font-weight: bold;
   text-decoration: none;
+  color: #1b1b1b;
+  background: #f4c742;
   border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .enter-btn:hover {
   transform: scale(1.05);
   background: #e0b935;
+}
+
+/* Animations for text */
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px);}
+  100% { opacity: 1; transform: translateY(0);}
 }
