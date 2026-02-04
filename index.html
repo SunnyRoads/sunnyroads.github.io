@@ -30,15 +30,12 @@
     }
 
     #coffeeVideo {
-      opacity: 1;
-      transition: opacity 1s ease;
-      z-index: 2;
+      display: block;
     }
 
     #sunriseVideo {
-      opacity: 0;
-      transition: opacity 1s ease;
-      z-index: 1;
+      display: none;
+      /* Let it play naturally, no scaling or overlay */
     }
   </style>
 </head>
@@ -54,17 +51,17 @@
     const coffee = document.getElementById("coffeeVideo");
     const sunrise = document.getElementById("sunriseVideo");
 
-    // Play coffee immediately
+    // Play coffee video immediately
     coffee.play().catch(() => {});
 
-    // 4s: hide coffee and show sunrise
+    // 4s: hide coffee
     setTimeout(() => {
-      coffee.style.opacity = 0; // fade out coffee
-      sunrise.style.opacity = 1; // fade in sunrise
+      coffee.style.display = "none";
+      sunrise.style.display = "block";
       sunrise.play().catch(() => {});
     }, 4000);
 
-    // 10s: redirect to main page (adjust to total intro duration)
+    // 10s: redirect to main page (adjust according to sunrise length)
     setTimeout(() => {
       window.location.href = "main.html";
     }, 10000);
