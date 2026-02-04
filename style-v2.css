@@ -1,47 +1,17 @@
 /* =========================
-   GLOBAL RESET
+   RESET
 ========================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-  width: 100%;
-  min-height: 100%;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-/* =========================
-   TURQUOISE WATER BACKGROUND
-========================= */
-body {
-  background: linear-gradient(
-    180deg,
-    #2fb7b3 0%,
-    #2ab0ad 40%,
-    #1e8f97 100%
-  );
-}
-
-/* =========================
-   PAGE WRAPPER (CREATES EDGES)
-========================= */
-.page-wrapper {
-  padding: 32px 14px;
-}
-
-/* =========================
-   GOLD CARD (MAIN CONTENT)
-========================= */
-.container {
-  max-width: 920px;
-  margin: 0 auto;
-  background: #f6e8b8;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #4fa3a5; /* turquoise water */
+  color: #1f1f1f;
+  scroll-behavior: smooth;
 }
 
 /* =========================
@@ -49,152 +19,207 @@ body {
 ========================= */
 .hamburger {
   position: fixed;
-  top: 18px;
-  left: 18px;
-  font-size: 28px;
+  top: 32px;
+  left: 20px;
+  font-size: 30px;
   cursor: pointer;
-  z-index: 1001;
-  color: #1f2d2e;
+  z-index: 1200;
+  color: #111;
 }
 
-/* =========================
-   SIDE MENU
-========================= */
+/* SIDE MENU */
 .side-menu {
   position: fixed;
   top: 0;
-  left: -260px;
-  width: 240px;
-  height: 100%;
-  background: #f6e8b8;
-  padding: 80px 20px;
-  box-shadow: 4px 0 25px rgba(0,0,0,0.25);
+  left: -220px;
+  width: 200px;
+  height: 100vh;
+  background: #f4e6b6;
+  padding-top: 120px;
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 1100;
+}
+
+.side-menu a {
+  display: block;
+  padding: 16px 24px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.side-menu a:hover {
+  background: rgba(0,0,0,0.05);
 }
 
 .side-menu.open {
   left: 0;
 }
 
-.side-menu a {
-  display: block;
-  margin-bottom: 20px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f2d2e;
-}
-
-.side-menu a:hover {
-  color: #2aa6a6;
+/* =========================
+   LAYOUT
+========================= */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* =========================
-   SECTIONS
+   HERO SECTION
 ========================= */
-.section {
-  padding: 48px 22px;
+.hero {
+  position: relative;
+  background: #b9b08c; /* warm sand */
+  padding: 80px 20px 100px;
   text-align: center;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero {
-  background: #bdb28f;
+/* HERO VIDEO (optional safety) */
+.hero-video {
+  display: none;
 }
 
-.hero .logo {
-  max-width: 260px;
-  margin-bottom: 20px;
+.hero-overlay {
+  position: relative;
+  z-index: 2;
 }
 
+/* LOGO */
+.logo {
+  max-width: 280px;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+/* HERO TEXT */
 .hero h1 {
-  font-size: 34px;
+  font-size: 36px;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .hero p {
   font-size: 18px;
-  line-height: 1.5;
-  color: #f4f8f8;
+  line-height: 1.6;
+  color: #ffffff;
+  opacity: 0.95;
 }
 
 /* =========================
-   TOURS
+   TOURS SECTION
 ========================= */
-.tours h2 {
-  font-size: 30px;
-  margin-bottom: 32px;
-  color: #1f2d2e;
+.tours {
+  background: #f6e8b9; /* gold */
+  padding: 64px 20px 80px;
 }
 
+.tours h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 48px;
+}
+
+/* TOUR ITEMS */
 .tour {
-  max-width: 620px;
-  margin: 0 auto 28px auto;
-  text-align: left;
+  max-width: 700px;
+  margin: 0 auto 28px;
 }
 
 .tour h3 {
   font-size: 20px;
   margin-bottom: 6px;
-  color: #1f2d2e;
 }
 
 .tour p {
   font-size: 16px;
-  line-height: 1.4;
-  color: #3b3b3b;
+  line-height: 1.5;
+  opacity: 0.85;
 }
 
 /* =========================
    BOOKING BUTTON
 ========================= */
-.booking-wrapper {
-  text-align: center;
-  margin-top: 40px;
-}
-
 .tour-cta {
-  display: inline-block;
-  background: #000000;
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 10px;
+  display: block;
+  margin: 48px auto 0;
+  text-align: center;
+  background: #1f7f82;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 50px;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  max-width: 260px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 .tour-cta:hover {
-  background: #1f2d2e;
+  background: #166b6d;
 }
 
 /* =========================
    CONTACT
 ========================= */
-#contact h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-  color: #1f2d2e;
+#contact {
+  background: #4fa3a5;
+  color: #ffffff;
+  padding: 64px 20px;
+  text-align: center;
 }
 
-#contact p {
-  font-size: 16px;
-  color: #3b3b3b;
+#contact h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
 }
 
 /* =========================
-   RESPONSIVE
+   FLOATING SOCIAL BUTTONS
 ========================= */
-@media (max-width: 480px) {
+.whatsapp-float,
+.facebook-float {
+  position: fixed;
+  bottom: 20px;
+  padding: 14px 18px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 1300;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  font-size: 14px;
+}
+
+.whatsapp-float {
+  right: 20px;
+  background: #25d366;
+}
+
+.facebook-float {
+  left: 20px;
+  background: #1877f2;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+}
+
+.facebook-float:hover {
+  background: #145fd1;
+}
+
+/* =========================
+   MOBILE TWEAKS
+========================= */
+@media (max-width: 600px) {
   .hero h1 {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .hero p {
     font-size: 16px;
+  }
+
+  .logo {
+    max-width: 240px;
   }
 }
