@@ -1,137 +1,132 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Page background starts dark for smooth transition */
+/* GENERAL */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #000000, #000000);
-  color: #333;
-  transition: background 2.5s ease; /* smooth fade-in from intro */
 }
 
-/* After page load, we can add a class to fade to main gradient */
-body.loaded {
-  background: linear-gradient(180deg, #2ec4c6, #1fa2a6, #1b8f8b);
-}
-
-/* Layout */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
+.section {
   padding: 60px 20px;
 }
 
-/* Section spacing */
-.section {
-  background: #f4e4b6;
-  padding: 40px 25px;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  margin-bottom: 50px;
+.container {
+  width: 100%;
 }
 
-/* Hero */
+/* HERO */
 .hero {
-  text-align: center;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.logo {
-  max-width: 200px;
-  margin-bottom: 20px;
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hero h1 {
-  font-size: 34px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* Tours */
-.tours h2 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-
-.tour {
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  color: white;
   text-align: center;
-  gap: 12px;
-  margin-bottom: 28px;
+  background: rgba(0, 0, 0, 0.35);
 }
 
-.tour h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
+.logo {
+  max-width: 180px;
+  margin-bottom: 20px;
 }
 
-.tour p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.5;
+/* HAMBURGER */
+.hamburger {
+  position: fixed;
+  top: 60px;          /* ← moved down */
+  left: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+  color: white;
 }
 
-/* Tour CTA buttons */
-.tour-cta {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 24px;
-  background: #f4c742;   /* gold */
-  color: #1b1b1b;
-  font-weight: bold;
+/* SIDE MENU */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 200px;
+  height: 100%;
+  background: #111;
+  padding-top: 120px;  /* links are INSIDE */
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu a {
+  display: block;
+  padding: 14px 20px;
+  color: white;
   text-decoration: none;
-  border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+  font-size: 18px;
 }
 
-.tour-cta:hover {
-  transform: scale(1.05);
-  background: #e0b935;
+.side-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Floating buttons */
+/* TOURS */
+.tours {
+  max-width: 800px;
+  margin: auto;
+}
+
+.tour {
+  margin-bottom: 24px;
+}
+
+/* BOOKING BUTTON */
+.tour-cta {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 0 auto; /* centered */
+  padding: 14px 28px;
+  background: #000;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* FLOATING BUTTONS */
+.facebook-float,
 .whatsapp-float {
   position: fixed;
-  right: 20px;
-  bottom: 25px;
-  background: #25D366;
+  bottom: 20px;
+  padding: 10px 16px;
   color: white;
-  padding: 18px 26px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  z-index: 1000;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 .facebook-float {
-  position: fixed;
   left: 20px;
-  bottom: 25px;
-  background: #1877F2;
-  color: white;
-  padding: 18px 26px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  z-index: 1000;
+  background: #1877f2;
 }
 
-.whatsapp-float:hover,
-.facebook-float:hover {
-  transform: scale(1.06);
+.whatsapp-float {
+  right: 20px;
+  background: #25d366;
 }
