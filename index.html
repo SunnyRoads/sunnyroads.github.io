@@ -27,44 +27,15 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 100%;
-      max-height: 100%;
       z-index: 1;
+    }
+
+    #coffeeVideo {
+      display: block;
     }
 
     #sunriseVideo {
       display: none;
-      z-index: 1;
-    }
-
-    /* GOLD DOT */
-    #goldDot {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: radial-gradient(circle, gold, #ffd700);
-      opacity: 0;
-      z-index: 3;
-      transition: transform 1s ease-out, opacity 1s ease-out;
-      pointer-events: none;
-    }
-
-    /* GOLD FADE OVERLAY */
-    #goldOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, #fff8dc, #ffd700, #e6c200);
-      opacity: 0;
-      z-index: 5;
-      pointer-events: none;
-      transition: opacity 2s ease-in-out;
     }
   </style>
 </head>
@@ -76,44 +47,51 @@
   <!-- Sunrise Video -->
   <video id="sunriseVideo" src="intro-video/sunrise.mp4" muted playsinline></video>
 
-  <!-- Gold Dot -->
-  <div id="goldDot"></div>
-
-  <!-- Gold Overlay for transition -->
-  <div id="goldOverlay"></div>
-
   <script>
     const coffee = document.getElementById("coffeeVideo");
     const sunrise = document.getElementById("sunriseVideo");
-    const goldDot = document.getElementById("goldDot");
-    const goldOverlay = document.getElementById("goldOverlay");
 
-    // Play coffee immediately
-    coffee.play().catch(()=>{});
+    // Create the gold dot inside coffee
+    const dot = document.createElement('div');
+    dot.style.position = 'absolute';
+    dot.style.width = '20px';       // smaller size
+    dot.style.height = '20px';
+    dot.style.borderRadius = '50%';
+    dot.style.background = 'gold';
+    dot.style.left = '50%';
+    dot.style.top = '50%';
+    dot.style.transform = 'translate(-50%, -50%) scale(0)';
+    dot.style.opacity = '0';
+    dot.style.zIndex = '3';
+    document.body.appendChild(dot);
 
-    // Show gold dot in last 1.5 seconds of coffee video (half second earlier)
+    // Play coffee video
+    coffee.play().catch(() => {});
+
+    // 3.4s: show and expand dot
     setTimeout(() => {
-      goldDot.style.opacity = 1;
-      goldDot.style.transform = "translate(-50%, -50%) scale(15)";
-    }, 3000); // now starts at 3s
+      dot.style.transition = 'transform 1s ease, opacity 1s ease';
+      dot.style.opacity = '1';
+      dot.style.transform = 'translate(-50%, -50%) scale(0.6)'; // subtle growth
+    }, 3400);
 
-    // At 4s: hide coffee, show sunrise
+    // 4s: hide coffee and show sunrise
     setTimeout(() => {
+      coffee.style.opacity = 0;
       coffee.style.display = "none";
-      goldDot.style.opacity = 0; // dot merges into sunrise
       sunrise.style.display = "block";
-      sunrise.play().catch(()=>{});
+      sunrise.play().catch(() => {});
+      dot.style.opacity = 0; // fade out dot
     }, 4000);
 
-    // At 9s: start fade into main page
+    // 12s: smoothly fade to main page with golden gradient
     setTimeout(() => {
-      goldOverlay.style.opacity = 1;
-    }, 9000);
-
-    // At 11s: redirect to main site
-    setTimeout(() => {
-      window.location.href = "main.html";
-    }, 11000);
+      document.body.style.transition = 'background 2s ease';
+      document.body.style.background = 'linear-gradient(to bottom, #f7e1a1, #f4c742, #d4a017)'; // gold gradient
+      setTimeout(() => {
+        window.location.href = "main.html"; // redirect
+      }, 2000); // wait for gradient transition
+    }, 12000);
   </script>
 
 </body>
