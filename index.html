@@ -8,30 +8,28 @@
 </head>
 <body>
 
-  <!-- Volcano Video -->
-  <div class="video-container" id="volcano-container">
-    <video id="volcano" src="intro-video/volcano.mp4" autoplay muted playsinline></video>
+  <!-- VOLCANO VIDEO -->
+  <div class="video-layer">
+    <video
+      id="volcanoVideo"
+      src="intro-video/volcano.mp4"
+      autoplay
+      muted
+      playsinline
+    ></video>
   </div>
 
-  <!-- Coffee Cup Video -->
-  <div class="video-container hidden" id="coffee-container">
-    <video id="coffee" src="intro-video/coffee.mp4" autoplay muted playsinline></video>
+  <!-- COFFEE VIDEO -->
+  <div class="video-layer coffee hidden">
+    <video
+      id="coffeeVideo"
+      src="intro-video/coffee.mp4"
+      autoplay
+      muted
+      playsinline
+    ></video>
   </div>
 
-  <script>
-    // Fade in coffee cup and move it toward viewer at 7 seconds
-    setTimeout(() => {
-      document.getElementById('volcano-container').classList.add('fade-out');
-      const coffee = document.getElementById('coffee-container');
-      coffee.classList.remove('hidden');
-      coffee.classList.add('fade-in', 'move-forward');
-    }, 7000);
-
-    // Autoredirect after 12 seconds
-    setTimeout(() => {
-      window.location.href = 'main.html';
-    }, 12000);
-  </script>
-
+  <script src="intro.js"></script>
 </body>
 </html>
