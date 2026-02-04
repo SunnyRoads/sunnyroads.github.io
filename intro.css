@@ -5,82 +5,45 @@
   box-sizing: border-box;
 }
 
-/* Fullscreen body */
+/* Full screen intro */
 body, html {
-  width: 100%;
   height: 100%;
+  width: 100%;
   font-family: Arial, sans-serif;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden; /* prevent scroll during intro */
 }
 
-/* Video background */
-.bg-video {
+/* Smooth gradient background */
+.intro {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1; /* Behind everything */
-  filter: brightness(0.6); /* Darken slightly for text readability */
-}
-
-/* Overlay content */
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #2ec4c6, #1fa2a6, #1b8f8b, #f4c742);
+  background-size: 400% 400%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: #fff;
-  padding: 20px;
-  width: 90%;
-  max-width: 600px;
+  color: white;
+  animation: gradientShift 12s ease infinite;
+  z-index: 9999;
 }
 
-/* Logo */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .logo {
   max-width: 200px;
   margin-bottom: 20px;
 }
 
-/* Headline */
-.overlay h1 {
+.intro h1 {
   font-size: 36px;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-  animation: fadeSlide 1.5s ease forwards;
-}
-
-/* Subtext */
-.overlay p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
-  animation: fadeSlide 2s ease forwards;
-}
-
-/* Enter button */
-.enter-btn {
-  display: inline-block;
-  padding: 14px 32px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #1b1b1b;
-  background: #f4c742;
-  border-radius: 30px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.enter-btn:hover {
-  transform: scale(1.05);
-  background: #e0b935;
-}
-
-/* Animations for text */
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: translateY(20px);}
-  100% { opacity: 1; transform: translateY(0);}
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
