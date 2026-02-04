@@ -8,34 +8,14 @@
 </head>
 <body>
 
-  <!-- Intro Section -->
-  <div class="intro" id="intro">
-    <img src="SunnyRoads.gif" alt="SunnyRoads Logo" class="logo">
-    <h1>SunnyRoads Adventures</h1>
-  </div>
+  <!-- Volcano Video -->
+  <video id="volcanoVideo" autoplay muted playsinline>
+    <source src="intro-video/volcano.mp4" type="video/mp4">
+  </video>
 
-  <!-- Main Content (hidden until intro fades) -->
-  <main id="main-content" style="display: none;">
-    <!-- This can be your main.html content embedded here or redirected -->
-  </main>
+  <!-- Lava Button -->
+  <button id="lavaButton">Touch the Lava</button>
 
-  <!-- Script to fade intro -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const intro = document.getElementById('intro');
-      const main = document.getElementById('main-content');
-
-      // Fade out intro after 4 seconds
-      setTimeout(() => {
-        intro.style.opacity = '0';
-        intro.style.transition = 'opacity 1.2s ease';
-        setTimeout(() => {
-          intro.style.display = 'none';
-          main.style.display = 'block';
-        }, 1200);
-      }, 4000); // 4 seconds
-    });
-  </script>
-
+  <script src="intro.js"></script>
 </body>
 </html>
