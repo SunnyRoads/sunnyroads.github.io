@@ -47,6 +47,7 @@ html, body {
 /* Lava button */
 #lavaButton {
   position: absolute;
+  bottom: 8vh;               /* 👈 pushes it below the volcano */
   z-index: 3;
   padding: 18px 44px;
   font-size: 26px;
