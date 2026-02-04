@@ -4,24 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunnyRoads Adventures</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- UPDATED CSS FILE -->
+  <link rel="stylesheet" href="style-v2.css">
 </head>
 <body>
 
-  <!-- HAMBURGER -->
-  <div class="hamburger" id="hamburger">☰</div>
+  <!-- HAMBURGER BUTTON -->
+  <div class="hamburger" id="hamburger">
+    ☰
+  </div>
 
   <!-- SIDE MENU -->
   <nav class="side-menu" id="sideMenu">
-    <a href="#home">About</a>
+    <a href="#about">About</a>
     <a href="#tours">Tours</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <main class="container" id="home">
+  <main class="container">
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- HERO / ABOUT -->
+    <section class="section hero" id="about">
+
+      <!-- VIDEO BACKGROUND -->
       <video autoplay muted loop playsinline class="hero-video">
         <source src="hero-video.mp4" type="video/mp4">
       </video>
@@ -34,42 +40,111 @@
           Private tours, transport, and authentic local experiences.
         </p>
       </div>
+
     </section>
 
     <!-- TOURS -->
     <section class="section tours" id="tours">
       <h2>Our Tours & Services</h2>
 
-      <div class="tour">✈ Airport Pickup & Transportation</div>
-      <div class="tour">🍻 Bar & Club Hangout</div>
-      <div class="tour">☕ Coffee Farm Experience</div>
-      <div class="tour">🧭 Custom Private Adventures</div>
+      <div class="tour">
+        <h3>✈ Airport Pickup & Transportation</h3>
+        <p>Safe, reliable transport to your destination.</p>
+      </div>
 
-      <a href="https://wa.me/50558365522" class="tour-cta" target="_blank">
-        Book Your Adventure
-      </a>
+      <div class="tour">
+        <h3>🍻 Bar & Club Hangout (Wingman)</h3>
+        <p>Relaxed nightlife experience with a local companion.</p>
+      </div>
+
+      <div class="tour">
+        <h3>☕ Coffee Farm Experience</h3>
+        <p>Visit local farms and learn how Nicaraguan coffee is made.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🧭 Custom Private Adventures</h3>
+        <p>You choose the idea — we plan it together.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🎣 Fishing Tours</h3>
+        <p>Local fishing trips for beginners and enthusiasts.</p>
+      </div>
+
+      <div class="tour">
+        <h3>⛴ Ometepe Ferry Pickup & Drop-off</h3>
+        <p>Stress-free ferry transfers plus local recommendations.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🏝 Ometepe Island Exploration (Multi-day)</h3>
+        <p>Beaches, volcanoes, villages, and hidden spots.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🏛 City & Cultural Tours</h3>
+        <p>Explore history, food, culture, and daily life.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🌅 Popoyo Sunset Tour</h3>
+        <p>One of Nicaragua’s most beautiful sunset experiences.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🌋 Volcano & Nature Tours</h3>
+        <p>Volcano hikes, nature reserves, and scenic viewpoints.</p>
+      </div>
+
+      <!-- CENTERED BOOKING BUTTON -->
+      <div class="booking-wrapper">
+        <a
+          href="https://wa.me/50558365522"
+          class="tour-cta"
+          target="_blank"
+        >
+          Book Your Adventure
+        </a>
+      </div>
+
     </section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
       <h2>Contact</h2>
-      <p>Message us anytime on WhatsApp or Facebook.</p>
+      <p>Message us anytime on WhatsApp or Facebook to plan your adventure.</p>
     </section>
 
   </main>
+
+  <!-- FACEBOOK BUTTON -->
+  <a href="https://www.facebook.com/share/16vToSF7Mu/"
+     class="facebook-float"
+     target="_blank">
+    Facebook
+  </a>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/50558365522"
+     class="whatsapp-float"
+     target="_blank">
+    WhatsApp
+  </a>
 
   <!-- MENU SCRIPT -->
   <script>
     const hamburger = document.getElementById("hamburger");
     const menu = document.getElementById("sideMenu");
 
-    hamburger.addEventListener("click", (e) => {
-      e.stopPropagation();
+    hamburger.addEventListener("click", () => {
       menu.classList.toggle("open");
     });
 
-    document.addEventListener("click", () => {
-      menu.classList.remove("open");
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove("open");
+      }
     });
   </script>
 
