@@ -10,89 +10,78 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      overflow: hidden;
       background: black;
-      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
-    /* Fullscreen intro container */
-    #introContainer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      z-index: 9999;
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      opacity: 1;
-      transition: opacity 2.5s ease; /* Smooth fade for sunrise → main */
+      background: black;
     }
 
     video {
-      max-width: 100%;
-      max-height: 100%;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-    }
-
-    #coffeeVideo, #sunriseVideo {
-      transition: opacity 1s ease;
+      z-index: 1;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     #coffeeVideo {
-      opacity: 1;
       display: block;
+      opacity: 1;
+      transition: opacity 1s ease;
+      z-index: 2;
     }
 
     #sunriseVideo {
-      opacity: 0;
       display: none;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
 
-  <div id="introContainer">
-    <video id="coffeeVideo" src="intro-video/coffee.mp4" autoplay muted playsinline></video>
-    <video id="sunriseVideo" src="intro-video/sunrise.mp4" muted playsinline></video>
-  </div>
+  <!-- Coffee Video -->
+  <video id="coffeeVideo" src="intro-video/coffee.mp4" autoplay muted playsinline></video>
+
+  <!-- Sunrise Video -->
+  <video id="sunriseVideo" src="intro-video/sunrise.mp4" muted playsinline></video>
 
   <script>
     const coffee = document.getElementById("coffeeVideo");
     const sunrise = document.getElementById("sunriseVideo");
-    const introContainer = document.getElementById("introContainer");
 
+    // Play coffee video immediately
     coffee.play().catch(() => {});
 
-    // Step 1: Coffee fades out to black (0–4.5s)
+    // 4s: fade out coffee and show sunrise
     setTimeout(() => {
-      coffee.style.opacity = 0;
-      setTimeout(() => coffee.style.display = "none", 500);
+      coffee.style.opacity = 0; // fade out coffee
+      setTimeout(() => {
+        coffee.style.display = "none";
+      }, 1000); // hide after fade
+      sunrise.style.display = "block";
+      sunrise.style.opacity = 1; // fade in sunrise
+      sunrise.play().catch(() => {});
     }, 4000);
 
-    // Step 2: Sunrise fades in from black (4.5–5.5s)
+    // 10s: slowly blend sunrise colors into main page
     setTimeout(() => {
-      sunrise.style.display = "block";
-      sunrise.style.opacity = 1;
-      sunrise.play().catch(() => {});
-    }, 4500);
+      document.body.style.transition = "background 2.5s ease";
+      document.body.style.background = "linear-gradient(180deg, #2ec4c6, #1fa2a6, #1b8f8b)"; // main page gradient
+    }, 10000);
 
-    // Step 3: Smooth fade of intro container to reveal main page (11–13.5s)
-    setTimeout(() => {
-      introContainer.style.transition = "opacity 2.5s ease";
-      introContainer.style.opacity = 0;
-    }, 11000);
-
-    // Step 4: Redirect to main page at 13.5s (intro almost fully faded)
+    // 12.5s: redirect to main page
     setTimeout(() => {
       window.location.href = "main.html";
-    }, 13500);
+    }, 12500);
   </script>
 </body>
 </html>
