@@ -15,6 +15,7 @@
       font-family: Arial, sans-serif;
     }
 
+    /* Fullscreen intro container */
     #introContainer {
       position: fixed;
       top: 0;
@@ -28,7 +29,7 @@
       align-items: center;
       flex-direction: column;
       opacity: 1;
-      transition: opacity 2s ease;
+      transition: opacity 2.5s ease; /* Smooth fade for sunrise → main */
     }
 
     video {
@@ -69,10 +70,10 @@
 
     coffee.play().catch(() => {});
 
-    // Step 1: Coffee fades out to black (4–4.5s)
+    // Step 1: Coffee fades out to black (0–4.5s)
     setTimeout(() => {
       coffee.style.opacity = 0;
-      setTimeout(() => coffee.style.display = "none", 500); // after fade complete
+      setTimeout(() => coffee.style.display = "none", 500);
     }, 4000);
 
     // Step 2: Sunrise fades in from black (4.5–5.5s)
@@ -82,16 +83,16 @@
       sunrise.play().catch(() => {});
     }, 4500);
 
-    // Step 3: Fade intro container to black for transition (11.5–12.5s)
+    // Step 3: Smooth fade of intro container to reveal main page (11–13.5s)
     setTimeout(() => {
-      introContainer.style.transition = "opacity 1s ease";
+      introContainer.style.transition = "opacity 2.5s ease";
       introContainer.style.opacity = 0;
-    }, 11500);
+    }, 11000);
 
-    // Step 4: Redirect to main page after fade (12.5s)
+    // Step 4: Redirect to main page at 13.5s (intro almost fully faded)
     setTimeout(() => {
       window.location.href = "main.html";
-    }, 12500);
+    }, 13500);
   </script>
 </body>
 </html>
