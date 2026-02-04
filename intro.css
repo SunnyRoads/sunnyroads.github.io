@@ -1,77 +1,45 @@
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Full screen black background */
-body, html {
+/* FULL SCREEN BLACK */
+html, body {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background: black;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* Video container */
-.video-container {
+/* VIDEO LAYER – CENTERED LIKE A MOVIE */
+.video-layer {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.video-container video {
+/* VIDEO SIZE – MOBILE FRIENDLY */
+.video-layer video {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-/* Hidden initially */
+/* COFFEE FADE IN */
+.coffee {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.coffee.show {
+  opacity: 1;
+}
+
+/* HIDDEN UTILITY */
 .hidden {
-  display: none;
-}
-
-/* Fade animations */
-.fade-in {
-  animation: fadeIn 1s forwards;
-}
-
-.fade-out {
-  animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeOut {
-  from {opacity: 1;}
-  to {opacity: 0;}
-}
-
-/* Move forward animation for coffee cup */
-.move-forward {
-  animation: fadeMove 3s forwards; /* 3-second forward movement */
-}
-
-@keyframes fadeMove {
-  0% {
-    opacity: 0;
-    transform: scale(0.7) translateY(50px) rotate(-5deg);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(0.85) translateY(25px) rotate(-2deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0) rotate(0deg);
-  }
+  pointer-events: none;
 }
