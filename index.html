@@ -44,19 +44,19 @@
 </head>
 <body>
 
-  <!-- Coffee -->
+  <!-- Coffee video -->
   <video
     id="coffeeVideo"
-    src="intro-video/coffee2.mp4"
+    src="intro-video/coffee.mp4"
     autoplay
     muted
     playsinline
   ></video>
 
-  <!-- Sunrise -->
+  <!-- Sunrise video -->
   <video
     id="sunriseVideo"
-    src="intro-video/sunrise2.mp4"
+    src="intro-video/sunrise.mp4"
     muted
     playsinline
   ></video>
@@ -65,25 +65,29 @@
     const coffee = document.getElementById("coffeeVideo");
     const sunrise = document.getElementById("sunriseVideo");
 
-    // Ensure autoplay
+    // Force autoplay
     coffee.play().catch(() => {});
 
     /*
-      TIMING — adjust ONLY if needed
-      coffee2.mp4 ends in full white
+      IMPORTANT:
+      Change 4000 ONLY if coffee.mp4 duration is different
     */
 
-    // Switch videos exactly at the white frame
+    // Cut at white frame
     setTimeout(() => {
       coffee.style.display = "none";
       sunrise.style.display = "block";
       sunrise.play().catch(() => {});
-    }, 4000); // ⬅️ match coffee duration (example: 4s)
+    }, 4000);
 
-    // Redirect after sunrise finishes
+    /*
+      Change 9000 ONLY if total intro length is different
+    */
+
+    // Redirect to main site
     setTimeout(() => {
       window.location.href = "main.html";
-    }, 9000); // ⬅️ coffee + sunrise total duration
+    }, 9000);
   </script>
 
 </body>
