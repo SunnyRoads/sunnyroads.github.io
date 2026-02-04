@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SunnyRoads Intro</title>
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       width: 100%;
-      overflow: hidden;
+      height: 100%;
       background: black;
+      overflow: hidden;
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
       background: black;
     }
@@ -27,71 +25,65 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      background: black;
     }
 
     #coffeeVideo {
       display: block;
+      z-index: 2;
     }
 
     #sunriseVideo {
       display: none;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Coffee Video -->
-  <video id="coffeeVideo" src="intro-video/coffee.mp4" autoplay muted playsinline></video>
+  <!-- Coffee -->
+  <video
+    id="coffeeVideo"
+    src="intro-video/coffee2.mp4"
+    autoplay
+    muted
+    playsinline
+  ></video>
 
-  <!-- Sunrise Video -->
-  <video id="sunriseVideo" src="intro-video/sunrise.mp4" muted playsinline></video>
+  <!-- Sunrise -->
+  <video
+    id="sunriseVideo"
+    src="intro-video/sunrise2.mp4"
+    muted
+    playsinline
+  ></video>
 
   <script>
     const coffee = document.getElementById("coffeeVideo");
     const sunrise = document.getElementById("sunriseVideo");
 
-    // Create the gold dot inside coffee
-    const dot = document.createElement('div');
-    dot.style.position = 'absolute';
-    dot.style.width = '20px';       // smaller size
-    dot.style.height = '20px';
-    dot.style.borderRadius = '50%';
-    dot.style.background = 'gold';
-    dot.style.left = '50%';
-    dot.style.top = '50%';
-    dot.style.transform = 'translate(-50%, -50%) scale(0)';
-    dot.style.opacity = '0';
-    dot.style.zIndex = '3';
-    document.body.appendChild(dot);
-
-    // Play coffee video
+    // Ensure autoplay
     coffee.play().catch(() => {});
 
-    // 3.4s: show and expand dot
-    setTimeout(() => {
-      dot.style.transition = 'transform 1s ease, opacity 1s ease';
-      dot.style.opacity = '1';
-      dot.style.transform = 'translate(-50%, -50%) scale(0.6)'; // subtle growth
-    }, 3400);
+    /*
+      TIMING — adjust ONLY if needed
+      coffee2.mp4 ends in full white
+    */
 
-    // 4s: hide coffee and show sunrise
+    // Switch videos exactly at the white frame
     setTimeout(() => {
-      coffee.style.opacity = 0;
       coffee.style.display = "none";
       sunrise.style.display = "block";
       sunrise.play().catch(() => {});
-      dot.style.opacity = 0; // fade out dot
-    }, 4000);
+    }, 4000); // ⬅️ match coffee duration (example: 4s)
 
-    // 12s: smoothly fade to main page with golden gradient
+    // Redirect after sunrise finishes
     setTimeout(() => {
-      document.body.style.transition = 'background 2s ease';
-      document.body.style.background = 'linear-gradient(to bottom, #f7e1a1, #f4c742, #d4a017)'; // gold gradient
-      setTimeout(() => {
-        window.location.href = "main.html"; // redirect
-      }, 2000); // wait for gradient transition
-    }, 12000);
+      window.location.href = "main.html";
+    }, 9000); // ⬅️ coffee + sunrise total duration
   </script>
 
 </body>
