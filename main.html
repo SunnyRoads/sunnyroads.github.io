@@ -1,93 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunnyRoads Adventures</title>
 
-  <!-- MAIN SITE STYLES -->
-  <link rel="stylesheet" href="./style-v2.css?v=3" />
+  <!-- IMPORTANT: correct CSS file -->
+  <link rel="stylesheet" href="style-v2.css">
 </head>
 <body>
 
-  <!-- MOBILE MENU BUTTON -->
-  <button id="menuToggle" aria-label="Menu">☰</button>
+  <!-- HAMBURGER BUTTON -->
+  <div class="hamburger" id="hamburger">☰</div>
 
   <!-- SIDE MENU -->
-  <nav id="sideMenu">
+  <nav class="side-menu" id="sideMenu">
     <a href="#home">Home</a>
     <a href="#tours">Tours</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- PAGE WRAPPER -->
-  <div id="page">
+  <main class="container" id="home">
 
-    <!-- HERO / BRAND -->
-    <section id="home" class="hero">
-      <img src="./sunnyroads.gif" alt="SunnyRoads Adventures Logo" class="logo" />
+    <!-- HERO -->
+    <section class="section hero">
+      <img src="sunnyroads.gif" alt="SunnyRoads Logo" class="logo">
 
       <h1>SunnyRoads Adventures</h1>
-      <p class="tagline">
-        Discover Nicaragua in a relaxed, safe, and personal way.<br />
+
+      <p>
+        Discover Nicaragua in a relaxed, safe, and personal way.<br>
         Private tours, transport, and authentic local experiences.
       </p>
     </section>
 
     <!-- TOURS -->
-    <section id="tours" class="content">
+    <section class="section tours" id="tours">
       <h2>Our Tours & Services</h2>
 
       <div class="tour">
-        ✈️ <strong>Airport Pickup & Transportation</strong>
+        <h3>✈ Airport Pickup & Transportation</h3>
         <p>Safe, reliable transport to your destination.</p>
       </div>
 
       <div class="tour">
-        🍻 <strong>Bar & Club Hangout (Wingman)</strong>
+        <h3>🍻 Bar & Club Hangout (Wingman)</h3>
         <p>Relaxed nightlife experience with a local companion.</p>
       </div>
 
       <div class="tour">
-        ☕ <strong>Coffee Farm Experience</strong>
+        <h3>☕ Coffee Farm Experience</h3>
         <p>Visit local farms and learn how Nicaraguan coffee is made.</p>
       </div>
 
       <div class="tour">
-        🧭 <strong>Custom Private Adventures</strong>
+        <h3>🧭 Custom Private Adventures</h3>
         <p>You choose the idea — we plan it together.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🎣 Fishing Tours</h3>
+        <p>Local fishing trips for beginners and enthusiasts.</p>
+      </div>
+
+      <div class="tour">
+        <h3>⛴ Ometepe Ferry Pickup & Drop-off</h3>
+        <p>Stress-free ferry transfers plus local recommendations.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🏝 Ometepe Island Exploration (Multi-day)</h3>
+        <p>Beaches, volcanoes, villages, and hidden spots.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🏛 City & Cultural Tours</h3>
+        <p>Explore history, food, culture, and daily life.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🌅 Popoyo Sunset Tour</h3>
+        <p>One of Nicaragua’s most beautiful sunset experiences.</p>
+      </div>
+
+      <div class="tour">
+        <h3>🌋 Volcano & Nature Tours</h3>
+        <p>Volcano hikes, nature reserves, and scenic viewpoints.</p>
+      </div>
+
+      <!-- BOOKING BUTTON -->
+      <div class="book-now-container">
+        <a
+          href="https://wa.me/50558365522"
+          class="tour-cta"
+          target="_blank"
+        >
+          Book Your Adventure Now
+        </a>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="content contact">
+    <section class="section contact" id="contact">
       <h2>Contact</h2>
-      <p>Message us anytime:</p>
-
-      <div class="socials">
-        <a href="https://wa.me/50558365522" target="_blank" rel="noopener">
-          WhatsApp
-        </a>
-        <a href="https://www.facebook.com/share/181rCPWSQH/" target="_blank" rel="noopener">
-          Facebook
-        </a>
-      </div>
+      <p>
+        Message us anytime on WhatsApp or Facebook to plan your adventure.
+      </p>
     </section>
 
-  </div>
+  </main>
+
+  <!-- FACEBOOK BUTTON -->
+  <a
+    href="https://www.facebook.com/share/181rCPWSQH/"
+    class="facebook-float"
+    target="_blank"
+  >
+    Facebook
+  </a>
+
+  <!-- WHATSAPP BUTTON -->
+  <a
+    href="https://wa.me/50558365522"
+    class="whatsapp-float"
+    target="_blank"
+  >
+    WhatsApp
+  </a>
 
   <!-- MENU SCRIPT -->
   <script>
-    const menu = document.getElementById('sideMenu');
-    const toggle = document.getElementById('menuToggle');
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("sideMenu");
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('open');
+    hamburger.addEventListener("click", () => {
+      menu.classList.toggle("open");
     });
 
-    document.addEventListener('click', (e) => {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove('open');
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove("open");
       }
     });
   </script>
