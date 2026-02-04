@@ -3,31 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SunnyRoads Adventures - Intro</title>
+  <title>SunnyRoads Adventures</title>
   <link rel="stylesheet" href="css/intro.css">
 </head>
 <body>
 
-  <!-- VIDEO BACKGROUND -->
-  <video autoplay muted loop id="introVideo">
-    <source src="videos/intro.mp4" type="video/mp4">
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="video/intro.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-  <!-- OVERLAY -->
+  <!-- Overlay for text & logo -->
   <div class="overlay">
     <img src="SunnyRoads.gif" alt="SunnyRoads Logo" class="logo">
-    <h1>SunnyRoads Adventures</h1>
-    <p>Discover Nicaragua in a relaxed, safe, and personal way.</p>
-    <a href="main.html" class="enter-btn">Enter Site</a>
+    <h1>Discover Nicaragua in Style</h1>
+    <p>Private tours, authentic experiences, unforgettable memories</p>
+    <a href="main.html" class="enter-btn">Enter Website</a>
   </div>
-
-  <!-- OPTIONAL: auto-redirect after 5 seconds -->
-  <script>
-    setTimeout(() => {
-      window.location.href = "main.html";
-    }, 5000); // 5 seconds
-  </script>
 
 </body>
 </html>
