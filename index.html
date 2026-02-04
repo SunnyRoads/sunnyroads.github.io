@@ -4,23 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunnyRoads Adventures</title>
-  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="intro.css">
 </head>
 <body>
 
-  <!-- Video Background -->
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="video/intro.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Overlay for text & logo -->
-  <div class="overlay">
+  <!-- Intro Section -->
+  <div class="intro" id="intro">
     <img src="SunnyRoads.gif" alt="SunnyRoads Logo" class="logo">
-    <h1>Discover Nicaragua in Style</h1>
-    <p>Private tours, authentic experiences, unforgettable memories</p>
-    <a href="main.html" class="enter-btn">Enter Website</a>
+    <h1>SunnyRoads Adventures</h1>
   </div>
+
+  <!-- Main Content (hidden until intro fades) -->
+  <main id="main-content" style="display: none;">
+    <!-- This can be your main.html content embedded here or redirected -->
+  </main>
+
+  <!-- Script to fade intro -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const intro = document.getElementById('intro');
+      const main = document.getElementById('main-content');
+
+      // Fade out intro after 4 seconds
+      setTimeout(() => {
+        intro.style.opacity = '0';
+        intro.style.transition = 'opacity 1.2s ease';
+        setTimeout(() => {
+          intro.style.display = 'none';
+          main.style.display = 'block';
+        }, 1200);
+      }, 4000); // 4 seconds
+    });
+  </script>
 
 </body>
 </html>
