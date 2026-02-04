@@ -1,42 +1,18 @@
-/* RESET LINK STYLES */
-a {
-  color: inherit;
-  text-decoration: none;
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* GENERAL */
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
 }
 
-.section {
-  padding: 60px 20px;
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  height: 100vh;
-}
-
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  background: #f4e6b8; /* golden background */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* REMOVE DEFAULT LINK STYLES */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* HAMBURGER */
@@ -54,14 +30,11 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   width: 200px;
-  background: rgba(0,0,0,0.85);
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
   padding-top: 120px;
-
-  /* 🔑 THIS FIXES THE BLUE LINKS */
   display: none;
-
   z-index: 1000;
 }
 
@@ -72,8 +45,50 @@ body {
 .side-menu a {
   display: block;
   padding: 16px 20px;
-  font-size: 18px;
   color: white;
+  font-size: 18px;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  background: #f4e6b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* LOGO */
+.logo {
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 60px 20px;
 }
 
 /* TOURS */
@@ -83,15 +98,18 @@ body {
 }
 
 .tour {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  font-size: 18px;
 }
 
 /* CTA BUTTON */
 .tour-cta {
   display: block;
-  margin: 40px auto;
+  width: fit-content;
+  margin: 40px auto 0;
   padding: 14px 28px;
   background: black;
   color: white;
   border-radius: 6px;
+  font-size: 16px;
 }
