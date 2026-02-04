@@ -3,19 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SunnyRoads Adventures</title>
+  <title>SunnyRoads Intro</title>
   <link rel="stylesheet" href="intro.css">
 </head>
 <body>
 
-  <div class="intro-wrapper">
-    <video id="volcanoVideo" autoplay muted playsinline>
-      <source src="intro-video/volcano.mp4" type="video/mp4">
-    </video>
-
-    <button id="lavaButton">Touch the Lava</button>
+  <!-- Volcano Video -->
+  <div class="video-container" id="volcano-container">
+    <video id="volcano" src="intro-video/volcano.mp4" autoplay muted playsinline></video>
   </div>
 
-  <script src="intro.js"></script>
+  <!-- Coffee Cup Video -->
+  <div class="video-container hidden" id="coffee-container">
+    <video id="coffee" src="intro-video/coffee.mp4" autoplay muted playsinline></video>
+  </div>
+
+  <script>
+    // Fade in coffee video at 7 seconds
+    setTimeout(() => {
+      document.getElementById('volcano-container').classList.add('fade-out');
+      document.getElementById('coffee-container').classList.remove('hidden');
+      document.getElementById('coffee-container').classList.add('fade-in');
+    }, 7000);
+
+    // Autoredirect after 12 seconds
+    setTimeout(() => {
+      window.location.href = 'main.html';
+    }, 12000);
+  </script>
+
 </body>
 </html>
