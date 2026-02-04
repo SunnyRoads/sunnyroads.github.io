@@ -56,13 +56,13 @@
 </head>
 <body>
 
-  <!-- Coffee Intro Video -->
+  <!-- Coffee Video -->
   <video id="coffeeVideo" src="intro-video/coffee.mp4" autoplay muted playsinline></video>
 
   <!-- Sunrise Video -->
   <video id="sunriseVideo" src="intro-video/sunrise.mp4" muted playsinline></video>
 
-  <!-- Fade overlay for transitions -->
+  <!-- Fade overlay for smooth transitions -->
   <div id="fadeOverlay"></div>
 
   <script>
@@ -70,29 +70,29 @@
     const sunrise = document.getElementById("sunriseVideo");
     const fade = document.getElementById("fadeOverlay");
 
-    coffee.oncanplaythrough = () => {
-      coffee.play();
+    // Ensure videos start hidden/visible properly
+    coffee.style.display = "block";
+    sunrise.style.display = "none";
 
-      // 4s fade overlay in
-      setTimeout(() => fade.classList.add("visible"), 4000);
+    // Start coffee video immediately
+    coffee.play().catch(() => {});
 
-      // 5.6s switch to sunrise
-      setTimeout(() => {
-        coffee.style.display = "none";
-        sunrise.style.display = "block";
+    // 4s: fade to black
+    setTimeout(() => fade.classList.add("visible"), 4000);
 
-        // Ensure sunrise plays
-        sunrise.oncanplaythrough = () => sunrise.play();
+    // 5.6s: switch to sunrise
+    setTimeout(() => {
+      coffee.style.display = "none";
+      sunrise.style.display = "block";
+      fade.classList.remove("visible");
+      sunrise.play().catch(() => {});
+    }, 5600);
 
-        fade.classList.remove("visible");
-      }, 5600);
+    // 10.1s: fade sunrise
+    setTimeout(() => fade.classList.add("visible"), 10100);
 
-      // 10.1s fade sunrise
-      setTimeout(() => fade.classList.add("visible"), 10100);
-
-      // 12.6s redirect to main website
-      setTimeout(() => window.location.href = "main.html", 12600);
-    };
+    // 12.6s: redirect to main website
+    setTimeout(() => window.location.href = "main.html", 12600);
   </script>
 </body>
 </html>
