@@ -10,7 +10,7 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      background: black; /* fallback background */
+      background: black;
       overflow: hidden;
     }
 
@@ -18,8 +18,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: black;
       position: relative;
+      background: black;
     }
 
     video {
@@ -30,15 +30,17 @@
       z-index: 1;
       max-width: 100%;
       max-height: 100%;
+      transition: opacity 1s ease;
     }
 
     #coffeeVideo {
-      display: block;
+      opacity: 1;
       z-index: 2;
     }
 
     #sunriseVideo {
-      display: none;
+      opacity: 0;
+      display: block; /* keep it ready to fade in */
       z-index: 1;
     }
 
@@ -73,23 +75,32 @@
     const sunrise = document.getElementById("sunriseVideo");
     const goldOverlay = document.getElementById("goldOverlay");
 
-    // Play coffee video immediately
+    // Play coffee immediately
     coffee.play().catch(() => {});
 
-    // 4s: hide coffee and show sunrise
+    // 4s: smooth crossfade to sunrise
     setTimeout(() => {
-      coffee.style.display = "none";
-      sunrise.style.display = "block";
+      // Start sunrise
       sunrise.play().catch(() => {});
+      
+      // Fade out coffee
+      coffee.style.opacity = 0;
+
+      // Fade in sunrise
+      sunrise.style.opacity = 1;
+
+      // Remove coffee from screen after fade completes
+      setTimeout(() => {
+        coffee.style.display = "none";
+      }, 1000); // matches CSS transition duration
     }, 4000);
 
     // 10s: start gold overlay fade and redirect
     setTimeout(() => {
       goldOverlay.style.opacity = 1; // fade to gold
-      // Redirect after overlay fully visible (1.2s transition)
       setTimeout(() => {
         window.location.href = "main.html";
-      }, 1200);
+      }, 1200); // overlay fade duration
     }, 10000);
   </script>
 </body>
