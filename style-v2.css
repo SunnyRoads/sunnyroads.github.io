@@ -1,176 +1,145 @@
 /* RESET */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* PAGE BACKGROUND (VARADERO WATER) */
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: linear-gradient(
     180deg,
-    #4fc3c7 0%,
-    #2bb3b1 40%,
-    #1fa4a8 100%
+    #3bb7b6 0%,
+    #2fa4a3 40%,
+    #1e8f96 100%
   );
-  min-height: 100vh;
 }
 
-/* MAIN GOLDEN PANEL */
+/* PAGE CONTAINER (GOLD CARD) */
 .container {
-  max-width: 420px;
+  max-width: 900px;
   margin: 0 auto;
-  background-color: #f6e7b8;
-  min-height: 100vh;
-  position: relative;
+  background: #f6e8b8;
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
 /* HAMBURGER */
 .hamburger {
   position: fixed;
-  top: 18px;
-  left: calc(50% - 210px + 16px); /* aligns to golden edge */
+  top: 20px;
+  left: 20px;
   font-size: 28px;
-  cursor: pointer;
   z-index: 1001;
-  color: #000;
+  cursor: pointer;
+  color: #1e1e1e;
 }
 
 /* SIDE MENU */
 .side-menu {
   position: fixed;
-  top: 0;
-  left: calc(50% - 210px);
-  width: 220px;
-  height: 100%;
-  background: #f6e7b8;
-  padding: 80px 20px;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  top: 70px;
+  left: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
   z-index: 1000;
 }
 
 .side-menu.open {
-  transform: translateX(0);
+  display: flex;
 }
 
 .side-menu a {
-  display: block;
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #000;
   text-decoration: none;
+  color: #1e1e1e;
   font-weight: 600;
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  height: 70vh;
-  overflow: hidden;
-}
-
-.hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
-
-.logo {
-  max-width: 220px;
-  margin-bottom: 16px;
 }
 
 /* SECTIONS */
 .section {
-  padding: 28px 22px;
+  padding: 48px 28px;
 }
 
-.section h2 {
-  font-size: 26px;
-  margin-bottom: 20px;
+/* HERO */
+.hero {
+  background: #c6bea0;
+  text-align: center;
+}
+
+.hero-video {
+  display: none;
+}
+
+.hero-overlay .logo {
+  max-width: 260px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.hero p {
+  color: #f5f5f5;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* HEADINGS */
+h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #1e1e1e;
 }
 
 /* TOURS */
 .tour {
-  margin-bottom: 18px;
+  max-width: 680px;
+  margin: 0 auto 26px;
+  text-align: left;
 }
 
 .tour h3 {
-  font-size: 18px;
-  margin-bottom: 4px;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  color: #1e1e1e;
 }
 
 .tour p {
-  font-size: 15px;
-  line-height: 1.4;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* BOOK BUTTON */
+/* BOOKING BUTTON */
 .booking-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 28px;
+  margin-top: 40px;
 }
 
 .tour-cta {
   background: #000;
   color: #fff;
-  padding: 14px 22px;
+  padding: 14px 32px;
   border-radius: 10px;
   text-decoration: none;
-  font-size: 16px;
+  font-weight: 600;
 }
 
-/* FLOATING BUTTONS */
-.facebook-float,
-.whatsapp-float {
-  position: fixed;
-  right: 16px;
-  padding: 10px 14px;
-  border-radius: 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  z-index: 1002;
-}
-
-.facebook-float {
-  bottom: 70px;
-  background: #1877f2;
-}
-
-.whatsapp-float {
-  bottom: 20px;
-  background: #25d366;
-}
-
-/* MOBILE EDGE SAFETY */
-@media (max-width: 420px) {
-  .container {
-    width: 100%;
-  }
-
-  .hamburger {
-    left: 16px;
-  }
-
-  .side-menu {
-    left: 0;
-  }
+/* CONTACT */
+#contact p {
+  text-align: center;
+  color: #333;
 }
