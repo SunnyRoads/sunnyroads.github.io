@@ -1,13 +1,17 @@
-// Show coffee and welcome sign at 7 seconds
-setTimeout(() => {
-  const coffee = document.getElementById('coffeeVideo').parentElement;
-  const welcome = document.getElementById('welcomeSign');
+const lavaButton = document.getElementById("lavaButton");
 
-  coffee.classList.add('show');       // Coffee slides up + fades in
-  welcome.classList.add('show-welcome'); // Welcome sign fades up
-}, 7000); // 7 seconds
-
-// Auto-redirect to main website at 12 seconds
+// Show button after 6 seconds
 setTimeout(() => {
-  window.location.href = 'main.html';
-}, 12000); // 12 seconds
+  lavaButton.style.opacity = "1";
+  lavaButton.style.pointerEvents = "auto";
+}, 6000);
+
+// Manual click → go to main site
+lavaButton.addEventListener("click", () => {
+  window.location.href = "main.html";
+});
+
+// Auto redirect after 13 seconds
+setTimeout(() => {
+  window.location.href = "main.html";
+}, 13000);
