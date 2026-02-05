@@ -5,27 +5,25 @@
   box-sizing: border-box;
 }
 
-/* TOTAL DARKNESS */
-body {
+/* BODY = PURE DARKNESS */
+html, body {
+  width: 100%;
+  height: 100%;
   background: black;
   overflow: hidden;
 }
 
-/* FULLSCREEN WRAPPER */
-#intro-wrapper {
+/* CINEMATIC VIDEO LAYER */
+.cinematic-video {
   position: fixed;
-  inset: 0;
-  background: black;
-}
-
-/* STACKED VIDEOS */
-#intro-wrapper video {
-  position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 
   opacity: 0;
-  transition: opacity 1s ease;
+  pointer-events: none;
+
+  transition: opacity 1.5s ease-in-out;
 }
