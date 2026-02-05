@@ -30,7 +30,7 @@ html, body {
 /* HERO OVERLAY */
 .hero-overlay {
   position: absolute;
-  top: 35%;  /* moved down */
+  top: 55%;  /* moved further down */
   width: 100%;
   text-align: center;
   z-index: 20;
