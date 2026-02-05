@@ -29,43 +29,22 @@ body {
 }
 
 /* HERO */
-.hero, .intro {
+.hero {
   padding-top: 80px;
 }
 
-.logo-container {
-  width: 200px; /* adjust for your design */
-  height: auto;
-  margin: 0 auto 20px auto;
+.logo {
+  width: 180px;
+  max-width: 70%;
+  margin-bottom: 20px;
 }
 
-.site-logo {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  opacity: 0;
-  animation: fadeIn 1.5s forwards;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Optional responsive logo */
-@media (max-width: 768px) {
-  .logo-container {
-    width: 150px;
-  }
-}
-
-/* HERO TEXT */
-.hero h1, .intro h1 {
+.hero h1 {
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
 
-.hero p, .intro p {
+.hero p {
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -120,63 +99,18 @@ body {
   margin-bottom: 15px;
 }
 
-/* HAMBURGER ICON & MENU */
-.hamburger {
-  font-size: 2rem;
-  cursor: pointer;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
+/* --- CLEAN HAMBURGER ICON --- */
+
+/* =======================
+   VIDEO LOGO FIX (Minimal)
+   ======================= */
+.logo-container {
+  width: 180px; /* same as old logo size */
+  margin: 0 auto 20px auto; /* center logo and spacing below */
 }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 220px;
-  height: 100%;
-  background: #1a8f8d;
-  padding-top: 60px;
-  transition: left 0.3s ease;
-  z-index: 999;
-}
-
-.side-menu.open {
-  left: 0;
-}
-
-.side-menu a {
-  display: block;
-  padding: 12px 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-.side-menu a:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* FACEBOOK & WHATSAPP FLOATING BUTTONS */
-.facebook-float, .whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1a8f8d;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1rem;
-  z-index: 1000;
-  margin-bottom: 10px;
-}
-
-.whatsapp-float {
-  bottom: 70px;
-}
-
-.facebook-float:hover, .whatsapp-float:hover {
-  background: #146f6d;
+.site-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
