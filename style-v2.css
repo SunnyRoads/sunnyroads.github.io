@@ -12,30 +12,48 @@ html, body {
 /* LOGO CONTAINER */
 .logo-container {
   position: absolute;
-  top: 20px;           /* distance from top */
-  left: 50%;           /* center horizontally */
-  transform: translateX(-50%); /* center exactly */
-  width: 350px;        /* bigger logo */
-  z-index: 20;         /* above canvas */
+  top: 20px;           
+  left: 50%;           
+  transform: translateX(-50%); 
+  width: 350px;        
+  z-index: 20;         
 }
 
 /* VIDEO LOGO */
 .logo {
-  width: 100%;         /* fills the container width */
-  height: auto;        /* keeps aspect ratio */
-  border-radius: 15px; /* optional rounded corners */
-  box-shadow: 0 0 15px rgba(0,0,0,0.5); /* subtle shadow */
+  width: 100%;         
+  height: auto;        
+  border-radius: 15px; 
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 /* HERO OVERLAY */
 .hero-overlay {
   position: absolute;
-  top: 20%;
+  top: 30%;  /* moved down */
   width: 100%;
   text-align: center;
-  color: #fff;
-  z-index: 20; /* above canvas */
+  color: #fff; 
+  z-index: 20; 
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+/* SUNSET GRADIENT H1 */
+.hero-overlay h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #FFD700, #FF8C00, #FF6347, #FF69B4); 
+  /* Light gold → orange → tomato → pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* HERO PARAGRAPH */
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
 }
 
 /* FLOATING BUTTONS */
@@ -51,9 +69,9 @@ html, body {
 }
 
 .facebook-float {
-  bottom: 20px;       /* bottom of page */
-  left: 20px;         /* left side */
-  background: #1877f2; /* Facebook blue */
+  bottom: 20px;       
+  left: 20px;         
+  background: #1877f2; 
 }
 
 .facebook-float:hover {
@@ -61,9 +79,9 @@ html, body {
 }
 
 .whatsapp-float {
-  bottom: 20px;       /* bottom of page */
-  right: 20px;        /* right side */
-  background: #25d366; /* WhatsApp green */
+  bottom: 20px;       
+  right: 20px;        
+  background: #25d366; 
 }
 
 .whatsapp-float:hover {
@@ -78,5 +96,5 @@ canvas#scene {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10; /* behind logo and overlay */
+  z-index: 10; 
 }
