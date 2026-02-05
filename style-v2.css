@@ -222,3 +222,30 @@ body {
 .section:last-child {
   border-bottom: none;
 }
+/* Logo container sizing and centering */
+.logo-container {
+  width: 200px; /* adjust as needed */
+  height: auto;
+  margin: 0 auto; /* centers the logo */
+}
+
+/* Video logo sizing and aspect ratio */
+.site-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* preserves aspect ratio */
+  opacity: 0;
+  animation: fadeIn 1.5s forwards; /* fade-in effect */
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Responsive logo for smaller screens */
+@media (max-width: 768px) {
+  .logo-container {
+    width: 150px;
+  }
+}
