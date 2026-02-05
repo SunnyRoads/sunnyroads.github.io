@@ -30,21 +30,20 @@ html, body {
 /* HERO OVERLAY */
 .hero-overlay {
   position: absolute;
-  top: 30%;  /* moved down */
+  top: 35%;  /* moved down */
   width: 100%;
   text-align: center;
-  color: #fff; 
-  z-index: 20; 
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  z-index: 20;
 }
 
 /* SUNSET GRADIENT H1 */
 .hero-overlay h1 {
   font-size: 3rem;
-  background: linear-gradient(90deg, #FFD700, #FF8C00, #FF6347, #FF69B4); 
-  /* Light gold → orange → tomato → pink */
+  background: linear-gradient(90deg, #FFD700, #FF8C00, #FF6347, #FF69B4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* fallback */
   display: inline-block;
 }
 
