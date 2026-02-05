@@ -1,29 +1,28 @@
-/* Reset and full black background */
+/* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-body, html {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  overflow: hidden; /* Prevent scroll */
+/* TOTAL DARKNESS */
+body {
+  background: black;
+  overflow: hidden;
 }
 
-/* Hero Video Fullscreen */
-.hero-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-color: black;
+/* FULLSCREEN VIDEO */
+#intro-wrapper {
+  position: fixed;
+  inset: 0;
+  background: black;
 }
 
-.hero-video {
+#intro-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0; /* Start invisible, will fade in */
-  transition: opacity 2s ease-in-out; /* Fade-in */
+
+  opacity: 0;
+  transition: opacity 2s ease;
 }
