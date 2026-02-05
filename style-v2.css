@@ -1,14 +1,15 @@
 /* RESET */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body, html {
+html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #2bb3b1, #1a8f8d);
 }
 
-/* Logo */
+/* LOGO */
 .logo-container {
   position: absolute;
   top: 20px;
@@ -22,7 +23,7 @@ body, html {
   height: auto;
 }
 
-/* Hero overlay text */
+/* HERO OVERLAY */
 .hero-overlay {
   position: absolute;
   top: 20%;
@@ -33,7 +34,7 @@ body, html {
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-/* Floating buttons */
+/* FLOATING BUTTONS */
 .facebook-float, .whatsapp-float {
   position: fixed;
   right: 20px;
@@ -52,7 +53,13 @@ body, html {
 
 .facebook-float:hover, .whatsapp-float:hover { background: #146f6d; }
 
-/* Canvas */
+/* CANVAS */
 canvas#scene {
   display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Behind overlay elements */
 }
