@@ -1,43 +1,8 @@
-// Create scene
-const scene = new THREE.Scene();
+// Fade in video after 2 seconds
+window.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('video1');
 
-// Create camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 5;
-
-// Create renderer
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('scene'), antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
-
-// Add a simple spinning cube
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-
-// Ambient light
-const light = new THREE.AmbientLight(0xffffff, 1);
-scene.add(light);
-
-// Animation loop
-function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-}
-
-animate();
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+  setTimeout(() => {
+    video.style.opacity = 1;
+  }, 2000); // 2000ms = 2 seconds delay
 });
