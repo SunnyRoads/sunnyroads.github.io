@@ -99,17 +99,14 @@ body {
   margin-bottom: 15px;
 }
 
-/* HAMBURGER */
+/* --- CLEAN HAMBURGER ICON --- */
+
 .hamburger {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1001;
-  background: rgba(255,255,255,0.6);
-  padding: 6px 12px;
-  border-radius: 6px;
+  background: none !important;
+  padding: 0;
+  font-size: 30px;
+  color: #000;
+  line-height: 1;
 }
 
 /* SIDE MENU */
@@ -173,4 +170,27 @@ body {
   .tour {
     text-align: center;
   }
+}
+/* --- COLOR HARMONY TWEAK --- */
+
+/* Main golden background – less aggressive yellow */
+.container {
+  background: linear-gradient(180deg, #f2c56b, #e6b458);
+}
+
+/* Tour cards – softer sand tone */
+.tour {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings darker for contrast */
+.tour h3,
+.tours h2 {
+  color: #2b2b2b;
+}
+
+/* Body text slightly softer */
+.tour p {
+  color: #3b3b3b;
 }
