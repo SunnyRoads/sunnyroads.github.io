@@ -1,99 +1,29 @@
-/* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* Reset and full black background */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html, body {
+body, html {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #2bb3b1, #1a8f8d);
+  background-color: black;
+  overflow: hidden; /* Prevent scroll */
 }
 
-/* LOGO CONTAINER */
-.logo-container {
-  position: absolute;
-  top: 20px;           
-  left: 50%;           
-  transform: translateX(-50%); 
-  width: 350px;        
-  z-index: 20;         
-}
-
-/* VIDEO LOGO */
-.logo {
-  width: 100%;         
-  height: auto;        
-  border-radius: 15px; 
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-/* HERO OVERLAY */
-.hero-overlay {
-  position: absolute;
-  top: 55%;  /* moved further down */
+/* Hero Video Fullscreen */
+.hero-container {
+  position: relative;
   width: 100%;
-  text-align: center;
-  z-index: 20;
+  height: 100vh;
+  background-color: black;
 }
 
-/* SUNSET GRADIENT H1 */
-.hero-overlay h1 {
-  font-size: 3rem;
-  background: linear-gradient(90deg, #FFD700, #FF8C00, #FF6347, #FF69B4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent; /* fallback */
-  display: inline-block;
-}
-
-/* HERO PARAGRAPH */
-.hero-overlay p {
-  font-size: 1.2rem;
-  margin-top: 15px;
-  color: #fff;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6);
-}
-
-/* FLOATING BUTTONS */
-.facebook-float, .whatsapp-float {
-  position: fixed;
-  padding: 10px 18px;
-  border-radius: 50px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 20;
-  transition: 0.3s;
-}
-
-.facebook-float {
-  bottom: 20px;       
-  left: 20px;         
-  background: #1877f2; 
-}
-
-.facebook-float:hover {
-  background: #145db2;
-}
-
-.whatsapp-float {
-  bottom: 20px;       
-  right: 20px;        
-  background: #25d366; 
-}
-
-.whatsapp-float:hover {
-  background: #1ebe57;
-}
-
-/* CANVAS */
-canvas#scene {
-  display: block;
+.hero-video {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10; 
+  object-fit: cover;
+  opacity: 0; /* Start invisible, will fade in */
+  transition: opacity 2s ease-in-out; /* Fade-in */
 }
