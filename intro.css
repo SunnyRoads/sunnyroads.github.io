@@ -1,3 +1,4 @@
+/* Reset & full screen */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,6 +8,7 @@ html, body {
   overflow: hidden;
 }
 
+/* Fade overlay for ending */
 #fade {
   position: fixed;
   inset: 0;
@@ -17,6 +19,7 @@ html, body {
   z-index: 20;
 }
 
+/* Fullscreen video styling */
 video {
   position: absolute;
   inset: 0;
@@ -26,6 +29,7 @@ video {
   background: black;
 }
 
+/* Tap to start button */
 #startBtn {
   position: fixed;
   inset: 0;
