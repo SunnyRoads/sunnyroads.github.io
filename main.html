@@ -1,44 +1,31 @@
-const videos = [
-  "assets/videos/intro-darkness.mp4",
-  "assets/videos/emergence-walk.mp4",
-  "assets/videos/world-unfold-walk.mp4"
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunny Roads Adventures</title>
 
-const player = document.getElementById("videoPlayer");
-const storyText = document.querySelector(".story-text");
+  <link rel="stylesheet" href="style-v2.css">
+</head>
+<body>
 
-let current = 0;
+  <!-- VIDEO BACKGROUND -->
+  <div id="video-stage">
+    <video
+      id="videoPlayer"
+      muted
+      autoplay
+      playsinline
+    ></video>
+  </div>
 
-function playVideo(index) {
-  if (index >= videos.length) return;
+  <!-- SCROLL CONTENT -->
+  <div id="scroll-container">
+    <section class="story-text">
+      <p>Every road begins with a step.</p>
+    </section>
+  </div>
 
-  player.src = videos[index];
-  player.muted = true;          // REQUIRED
-  player.playsInline = true;    // REQUIRED
-  player.load();
-
-  player.play().then(() => {
-    player.style.opacity = 1;
-  }).catch(err => {
-    console.warn("Autoplay blocked:", err);
-  });
-}
-
-player.addEventListener("ended", () => {
-  current++;
-  player.style.opacity = 0;
-
-  setTimeout(() => {
-    playVideo(current);
-  }, 1000);
-});
-
-// START
-playVideo(current);
-
-/* TEXT FADE-IN ON SCROLL */
-window.addEventListener("scroll", () => {
-  if (window.scrollY > window.innerHeight * 1.2) {
-    storyText.classList.add("visible");
-  }
-});
+  <script src="main.js"></script>
+</body>
+</html>
