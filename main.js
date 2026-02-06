@@ -1,10 +1,10 @@
 // Video playlist
 const videos = [
-  "mystery/videos/01-intro-darkness.mp4",
-  "mystery/videos/02-emergence-walk.mp4",
-  "mystery/videos/03-world-unfold-walk.mp4",
-  "mystery/videos/04-sunny-roads-sign.mp4",
-  "mystery/videos/05-sign-dog-zoom.mp4"
+  "media/videos/01-dark-intro.mp4",
+  "media/videos/02-emerging-walk.mp4",
+  "media/videos/03-world-unfold.mp4",
+  "media/videos/04-sign-appearance.mp4",
+  "media/videos/05-dog-and-sign.mp4"
 ];
 
 const player = document.getElementById("videoPlayer");
