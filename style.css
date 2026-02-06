@@ -5,7 +5,7 @@ html, body {
   width: 100%;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background: black; /* full black at start */
+  background: black; /* cinematic black background */
 }
 
 /* Fullscreen, centered video */
@@ -27,7 +27,7 @@ html, body {
   position: relative;
   z-index: 10;
   max-width: 800px;
-  margin: 150vh auto 50vh auto; /* scrolling spacing */
+  margin: 150vh auto 50vh auto; /* spacing for scrolling */
   color: white;
   text-align: center;
   opacity: 0;
@@ -36,26 +36,4 @@ html, body {
 
 .story-text.visible {
   opacity: 1;
-}
-
-/* WhatsApp button */
-#whatsappButton {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  background-color: #25D366;
-  color: white;
-  padding: 16px 22px;
-  font-size: 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  display: none;
-  z-index: 20;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: all 0.5s ease;
-}
-
-#whatsappButton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
