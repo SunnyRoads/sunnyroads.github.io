@@ -1,3 +1,4 @@
+// Video playlist
 const videos = [
   "assets/videos/intro-darkness.mp4",
   "assets/videos/emergence-walk.mp4",
@@ -12,37 +13,46 @@ const whatsappButton = document.getElementById("whatsappButton");
 
 let current = 0;
 
+// Function to play video
 function playVideo(index) {
-  if (index >= videos.length) return;
+  if(index >= videos.length) return;
 
   player.src = videos[index];
   player.muted = true;
   player.playsInline = true;
   player.autoplay = true;
+  player.preload = "auto";
 
   player.load();
-  player.play()
-    .then(() => { player.style.opacity = 1; })
-    .catch(err => { console.warn("Autoplay blocked:", err); });
+
+  // Fade in video once loaded
+  player.oncanplaythrough = () => {
+    player.style.opacity = 1;
+    player.play().catch(err => console.warn("Autoplay blocked:", err));
+  };
 }
 
-// Fade out and next video
+// When video ends, fade out and move to next
 player.addEventListener("ended", () => {
-  current++;
   player.style.opacity = 0;
+  current++;
 
   setTimeout(() => {
     playVideo(current);
 
-    // Show WhatsApp button after video 5
-    if(current === 4) { // 0-based index
+    // Show WhatsApp after last video
+    if(current === videos.length - 1) {
       whatsappButton.style.display = "block";
     }
-  }, 1000);
+  }, 1000); // 1-second fade out
 });
 
-// Start first video
-playVideo(current);
+// Start first video after slight delay to ensure everything is loaded
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    playVideo(current);
+  }, 500); // Half-second delay to prevent initial white flash
+});
 
 // Story text fade-in on scroll
 window.addEventListener("scroll", () => {
