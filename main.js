@@ -1,6 +1,7 @@
+
 const player = document.getElementById("videoPlayer");
 
-// Path to Video 1
+// Exact path to video1
 const firstVideo = "assets/videos/Video1.mp4";
 
 window.addEventListener("load", () => {
@@ -9,20 +10,20 @@ window.addEventListener("load", () => {
 
     // Set video source
     player.src = firstVideo;
-    player.muted = true;
-    player.playsInline = true;
+    player.muted = true;        // required for autoplay
+    player.playsInline = true;  // required for mobile
     player.autoplay = true;
     player.preload = "auto";
 
     player.load();
 
-    // Fade in and play when ready
-    player.oncanplaythrough = () => {
+    // Fade in and play when metadata is loaded
+    player.addEventListener("loadedmetadata", () => {
       player.style.opacity = 1;
       player.play().catch(err => console.warn("Autoplay blocked:", err));
-    };
+    });
 
-    // Log errors if video fails to load
+    // Log any errors
     player.onerror = (e) => {
       console.error("Video failed to load:", e);
     };
