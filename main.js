@@ -1,4 +1,3 @@
-// Video playlist
 const videos = [
   "assets/videos/intro-darkness.mp4",
   "assets/videos/emergence-walk.mp4",
@@ -19,6 +18,7 @@ function playVideo(index) {
   player.src = videos[index];
   player.muted = true;
   player.playsInline = true;
+  player.autoplay = true;
 
   player.load();
   player.play()
@@ -26,7 +26,7 @@ function playVideo(index) {
     .catch(err => { console.warn("Autoplay blocked:", err); });
 }
 
-// When video ends, move to next
+// Fade out and next video
 player.addEventListener("ended", () => {
   current++;
   player.style.opacity = 0;
@@ -34,8 +34,8 @@ player.addEventListener("ended", () => {
   setTimeout(() => {
     playVideo(current);
 
-    // Show WhatsApp button after video 5 ends
-    if(current === 5 - 1) { // 0-based index
+    // Show WhatsApp button after video 5
+    if(current === 4) { // 0-based index
       whatsappButton.style.display = "block";
     }
   }, 1000);
@@ -44,9 +44,9 @@ player.addEventListener("ended", () => {
 // Start first video
 playVideo(current);
 
-// Fade-in story text on scroll
+// Story text fade-in on scroll
 window.addEventListener("scroll", () => {
-  if (window.scrollY > window.innerHeight * 1.2) {
+  if(window.scrollY > window.innerHeight * 1.2) {
     storyText.classList.add("visible");
   }
 });
