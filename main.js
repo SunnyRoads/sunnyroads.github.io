@@ -27,8 +27,10 @@ player.addEventListener("ended", () => {
   playVideo(current);
 });
 
-// START
-playVideo(current);
+// START AFTER 2 SECONDS OF DARKNESS
+setTimeout(() => {
+  playVideo(current);
+}, 2000);
 
 // TEXT ON SCROLL
 window.addEventListener("scroll", () => {
