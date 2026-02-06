@@ -12,17 +12,14 @@ let current = 0;
 function playVideo(index) {
   if (index >= videos.length) return;
 
-  player.style.opacity = 0;
+  player.src = videos[index];
+  player.muted = true;
+  player.playsInline = true;
+  player.load();
 
-  setTimeout(() => {
-    player.src = videos[index];
-    player.load();
-    player.play();
-
-    player.onloadeddata = () => {
-      player.style.opacity = 1;
-    };
-  }, 1500);
+  player.play().catch(() => {
+    console.log("Autoplay prevented");
+  });
 }
 
 player.addEventListener("ended", () => {
@@ -30,9 +27,10 @@ player.addEventListener("ended", () => {
   playVideo(current);
 });
 
+// START
 playVideo(current);
 
-/* TEXT FADE-IN ON SCROLL */
+// TEXT ON SCROLL
 window.addEventListener("scroll", () => {
   if (window.scrollY > window.innerHeight) {
     storyText.classList.add("visible");
