@@ -8,12 +8,17 @@ html, body {
   width: 100%;
   height: 100%;
   background: black;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
+/* FIXED VIDEO BACKGROUND */
 #video-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
   background: black;
 }
 
@@ -21,7 +26,30 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: black;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
+}
+
+/* SCROLL SPACE */
+#scroll-container {
+  height: 300vh; /* THIS CREATES SCROLL */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CINEMATIC TEXT */
+.story-text {
+  position: sticky;
+  top: 40vh;
+  text-align: center;
+  color: #f5d27a;
+  font-size: 2rem;
+  font-family: serif;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.story-text.visible {
+  opacity: 1;
 }
