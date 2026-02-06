@@ -3,25 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SunnyRoads Intro</title>
-<link rel="stylesheet" href="intro.css">
+<title>Sunny Roads Intro</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+}
+
+/* Centered cinematic video */
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 92vw;
+  height: 92vh;
+  max-width: 100%;
+  max-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  background: black;
+}
+
+/* Fade overlay */
+#fade {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 10;
+}
+
+/* Tap to start */
+#start {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 20;
+}
+</style>
 </head>
+
 <body>
 
 <div id="fade"></div>
-<div id="startBtn">Tap to start</div>
+<div id="start">Tap to start</div>
 
-<!-- Coffee video -->
 <video id="coffee" muted playsinline preload="auto">
-  <source src="intro-video/Coffee.mp4" type="video/mp4">
+  <source src="intro-video/coffee.mp4" type="video/mp4">
 </video>
 
-<!-- Sunrise video -->
 <video id="sunrise" muted playsinline preload="auto" style="display:none;">
-  <source src="intro-video/Sunrise.mp4" type="video/mp4">
+  <source src="intro-video/sunrise.mp4" type="video/mp4">
 </video>
 
-<script src="intro.js"></script>
+<script>
+const start = document.getElementById("start");
+const coffee = document.getElementById("coffee");
+const sunrise = document.getElementById("sunrise");
+const fade = document.getElementById("fade");
+
+start.addEventListener("click", () => {
+  start.style.display = "none";
+  coffee.play();
+});
+
+coffee.addEventListener("ended", () => {
+  coffee.style.display = "none";
+  sunrise.style.display = "block";
+  sunrise.play();
+});
+
+sunrise.addEventListener("ended", () => {
+  fade.style.opacity = "1";
+
+  setTimeout(() => {
+    window.location.href = "mainpage/index.html";
+  }, 1000);
+});
+</script>
 
 </body>
 </html>
