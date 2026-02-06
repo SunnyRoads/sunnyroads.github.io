@@ -8,25 +8,29 @@ html, body {
   overflow: hidden;
 }
 
-/* Fade overlay for ending */
+/* Fade overlay for smooth transition */
 #fade {
   position: fixed;
   inset: 0;
   background: black;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.6s ease;
+  transition: opacity 1s ease;
   z-index: 20;
 }
 
-/* Fullscreen video styling */
+/* Fullscreen video container */
 video {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  top: 50%;
+  left: 50%;
+  width: 80%;            /* cinematic width */
+  height: auto;           /* preserve aspect ratio */
+  max-height: 90%;        /* never exceed screen height */
+  transform: translate(-50%, -50%);
+  object-fit: contain;    /* cinematic fit without stretching */
   background: black;
+  z-index: 10;
 }
 
 /* Tap to start button */
@@ -38,7 +42,9 @@ video {
   justify-content: center;
   background: black;
   color: white;
-  font-size: 22px;
+  font-size: 24px;
+  font-family: sans-serif;
   cursor: pointer;
   z-index: 30;
+  user-select: none;
 }
