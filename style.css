@@ -5,7 +5,7 @@ html, body {
   width: 100%;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background: black; /* starts fully black */
+  background: black; /* full black at start */
 }
 
 /* Fullscreen, centered video */
@@ -27,7 +27,7 @@ html, body {
   position: relative;
   z-index: 10;
   max-width: 800px;
-  margin: 150vh auto 50vh auto; /* allows scrolling */
+  margin: 150vh auto 50vh auto; /* scrolling spacing */
   color: white;
   text-align: center;
   opacity: 0;
