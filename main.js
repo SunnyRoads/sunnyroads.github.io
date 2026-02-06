@@ -1,11 +1,9 @@
-// First video file
-const firstVideo = "mystery/01-dark-intro.mp4"; // update with your exact path
-
 const player = document.getElementById("videoPlayer");
 
-// Wait for page load
-window.addEventListener("load", () => {
+// Path to Video 1
+const firstVideo = "assets/videos/Video1.mp4";
 
+window.addEventListener("load", () => {
   // 2-second black screen
   setTimeout(() => {
 
@@ -22,6 +20,11 @@ window.addEventListener("load", () => {
     player.oncanplaythrough = () => {
       player.style.opacity = 1;
       player.play().catch(err => console.warn("Autoplay blocked:", err));
+    };
+
+    // Log errors if video fails to load
+    player.onerror = (e) => {
+      console.error("Video failed to load:", e);
     };
 
   }, 2000); // 2 seconds black
