@@ -1,63 +1,61 @@
-// Video playlist in correct narrative order
-const videos = [
-  "media/videos/01-dark-intro.mp4",
-  "media/videos/02-emerging-walk.mp4",
-  "media/videos/03-world-unfold.mp4",
-  "media/videos/04-sign-appearance.mp4",
-  "media/videos/05-dog-and-sign.mp4"
-];
-
-const player = document.getElementById("videoPlayer");
-const storyText = document.querySelector(".story-text");
-const whatsappButton = document.getElementById("whatsappButton");
-
-let current = 0;
-
-// Function to play video
-function playVideo(index) {
-  if (index >= videos.length) return;
-
-  player.src = videos[index];
-  player.muted = true;       // required for autoplay
-  player.playsInline = true;  // required for mobile
-  player.autoplay = true;
-  player.preload = "auto";
-
-  player.load();
-
-  // Fade in once video is ready
-  player.oncanplaythrough = () => {
-    player.style.transition = "opacity 1s ease-in-out";
-    player.style.opacity = 1;
-    player.play().catch(err => console.warn("Autoplay blocked:", err));
-  };
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background: black; /* starts fully black */
 }
 
-// When video ends
-player.addEventListener("ended", () => {
-  player.style.opacity = 0; // fade out
-  current++;
+/* Fullscreen, centered video */
+#videoPlayer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
 
-  setTimeout(() => {
-    playVideo(current);
+/* Story text */
+.story-text {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 150vh auto 50vh auto; /* allows scrolling */
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
 
-    // Show WhatsApp button after last video
-    if (current === videos.length - 1) {
-      whatsappButton.style.display = "block";
-    }
-  }, 1000); // 1-second fade out between videos
-});
+.story-text.visible {
+  opacity: 1;
+}
 
-// Start first video after 2-second cinematic black screen
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    playVideo(current);
-  }, 2000); // 2-second black screen at start
-});
+/* WhatsApp button */
+#whatsappButton {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25D366;
+  color: white;
+  padding: 16px 22px;
+  font-size: 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: none;
+  z-index: 20;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.5s ease;
+}
 
-// Story text fade-in on scroll
-window.addEventListener("scroll", () => {
-  if (window.scrollY > window.innerHeight * 1.2) {
-    storyText.classList.add("visible");
-  }
-});
+#whatsappButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
