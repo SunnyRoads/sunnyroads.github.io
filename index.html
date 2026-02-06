@@ -4,91 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SunnyRoads Intro</title>
-
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  overflow: hidden;
-}
-
-/* Fade overlay */
-#fade {
-  position: fixed;
-  inset: 0;
-  background: black;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
-  z-index: 20;
-}
-
-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: black;
-}
-
-/* Tap to start */
-#startBtn {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: black;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 30;
-}
-</style>
+<link rel="stylesheet" href="intro.css">
 </head>
-
 <body>
 
 <div id="fade"></div>
 <div id="startBtn">Tap to start</div>
 
 <video id="coffee" muted playsinline preload="auto">
-  <source src="/intro-video/coffee.mp4" type="video/mp4">
+  <source src="assets/videos/Coffee.mp4" type="video/mp4">
 </video>
 
 <video id="sunrise" muted playsinline preload="auto" style="display:none;">
-  <source src="/intro-video/sunrise.mp4" type="video/mp4">
+  <source src="assets/videos/Sunrise.mp4" type="video/mp4">
 </video>
 
-<script>
-const startBtn = document.getElementById("startBtn");
-const coffee = document.getElementById("coffee");
-const sunrise = document.getElementById("sunrise");
-const fade = document.getElementById("fade");
-
-startBtn.addEventListener("click", () => {
-  startBtn.style.display = "none";
-  coffee.play();
-});
-
-coffee.addEventListener("ended", () => {
-  coffee.style.display = "none";
-  sunrise.style.display = "block";
-  sunrise.play();
-});
-
-sunrise.addEventListener("ended", () => {
-  fade.style.opacity = "1"; // fade to black
-
-  setTimeout(() => {
-    window.location.href = "/main.html";
-  }, 600);
-});
-</script>
+<script src="intro.js"></script>
 
 </body>
 </html>
