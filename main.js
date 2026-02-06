@@ -9,22 +9,23 @@ const videos = [
 
 const player = document.getElementById("videoPlayer");
 const storyText = document.querySelector(".story-text");
-const whatsappButton = document.getElementById("whatsappButton");
 
 let current = 0;
 
-// Play video function
+// Play one video at a time
 function playVideo(index) {
   if (index >= videos.length) return;
 
   player.src = videos[index];
-  player.muted = true;
-  player.playsInline = true;
+  player.style.opacity = 0;   // reset opacity
+  player.muted = true;        // required for autoplay
+  player.playsInline = true;  // required for mobile
   player.autoplay = true;
   player.preload = "auto";
 
   player.load();
 
+  // Fade in and play when ready
   player.oncanplaythrough = () => {
     player.style.transition = "opacity 1s ease-in-out";
     player.style.opacity = 1;
@@ -32,28 +33,23 @@ function playVideo(index) {
   };
 }
 
-// On video end
+// When a video ends, fade out and play next
 player.addEventListener("ended", () => {
   player.style.opacity = 0; // fade out
   current++;
-
   setTimeout(() => {
     playVideo(current);
-
-    if (current === videos.length - 1) {
-      whatsappButton.style.display = "block";
-    }
-  }, 1000); // 1s fade-out between videos
+  }, 1000); // 1s between videos
 });
 
-// Start first video after 2-second black
+// Start first video after 2-second black screen
 window.addEventListener("load", () => {
   setTimeout(() => {
     playVideo(current);
   }, 2000);
 });
 
-// Story text fade-in on scroll
+// Fade-in story text on scroll
 window.addEventListener("scroll", () => {
   if(window.scrollY > window.innerHeight * 1.2) {
     storyText.classList.add("visible");
