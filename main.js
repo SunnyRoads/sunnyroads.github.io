@@ -1,4 +1,4 @@
-// Video playlist
+// Video playlist in correct narrative order
 const videos = [
   "media/videos/01-dark-intro.mp4",
   "media/videos/02-emerging-walk.mp4",
@@ -13,9 +13,9 @@ const whatsappButton = document.getElementById("whatsappButton");
 
 let current = 0;
 
-// Function to play a video
+// Function to play video
 function playVideo(index) {
-  if(index >= videos.length) return;
+  if (index >= videos.length) return;
 
   player.src = videos[index];
   player.muted = true;       // required for autoplay
@@ -27,12 +27,13 @@ function playVideo(index) {
 
   // Fade in once video is ready
   player.oncanplaythrough = () => {
+    player.style.transition = "opacity 1s ease-in-out";
     player.style.opacity = 1;
     player.play().catch(err => console.warn("Autoplay blocked:", err));
   };
 }
 
-// When a video ends
+// When video ends
 player.addEventListener("ended", () => {
   player.style.opacity = 0; // fade out
   current++;
@@ -41,22 +42,22 @@ player.addEventListener("ended", () => {
     playVideo(current);
 
     // Show WhatsApp button after last video
-    if(current === videos.length - 1) {
+    if (current === videos.length - 1) {
       whatsappButton.style.display = "block";
     }
-  }, 1000); // 1-second fade out
+  }, 1000); // 1-second fade out between videos
 });
 
-// Start first video after slight black delay
+// Start first video after 2-second cinematic black screen
 window.addEventListener("load", () => {
   setTimeout(() => {
     playVideo(current);
-  }, 500); // 0.5-second black screen
+  }, 2000); // 2-second black screen at start
 });
 
 // Story text fade-in on scroll
 window.addEventListener("scroll", () => {
-  if(window.scrollY > window.innerHeight * 1.2) {
+  if (window.scrollY > window.innerHeight * 1.2) {
     storyText.classList.add("visible");
   }
 });
