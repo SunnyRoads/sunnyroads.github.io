@@ -1,26 +1,31 @@
-const video1 = document.getElementById("video1");
-const video2 = document.getElementById("video2");
+const videos = [
+  "assets/videos/intro-darkness.mp4",
+  "assets/videos/emergence-walk.mp4",
+  "assets/videos/world-unfold-walk.mp4"
+];
 
-// Initial safety
-video1.pause();
-video2.pause();
+const player = document.getElementById("videoPlayer");
+let current = 0;
 
-// STEP 1 — Start in total darkness
-setTimeout(() => {
-  // Fade in Video 1
-  video1.style.opacity = "1";
-  video1.play();
-}, 3000); // 3 seconds of pure black
+function playVideo(index) {
+  if (index >= videos.length) return;
 
-// STEP 2 — When Video 1 ends
-video1.addEventListener("ended", () => {
-  // Fade out Video 1
-  video1.style.opacity = "0";
+  player.style.opacity = 0;
 
-  // Short darkness gap
   setTimeout(() => {
-    // Fade in Video 2
-    video2.style.opacity = "1";
-    video2.play();
-  }, 1000); // 1 second of darkness between videos
+    player.src = videos[index];
+    player.load();
+    player.play();
+
+    player.onloadeddata = () => {
+      player.style.opacity = 1;
+    };
+  }, 1500);
+}
+
+player.addEventListener("ended", () => {
+  current++;
+  playVideo(current);
 });
+
+playVideo(current);
