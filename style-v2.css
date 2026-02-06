@@ -1,12 +1,13 @@
-/* Fullscreen video styling */
-body, html {
+html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  height: 100%;
   font-family: Arial, sans-serif;
-  background-color: black;
+  background: black;
 }
 
+/* Fullscreen video */
 .video-container {
   position: fixed;
   top: 0;
@@ -24,12 +25,12 @@ video {
   transition: opacity 1s ease-in-out;
 }
 
-/* Story text fade-in */
+/* Story text */
 .story-text {
   position: relative;
   z-index: 10;
   max-width: 800px;
-  margin: 150vh auto 50vh auto; /* ensures scrolling */
+  margin: 150vh auto 50vh auto; /* scrollable space */
   color: white;
   text-align: center;
   opacity: 0;
