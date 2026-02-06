@@ -2,7 +2,7 @@
 const player = document.getElementById("videoPlayer");
 
 // Exact path to video1
-const firstVideo = "assets/videos/Video1.mp4";
+cconst firstVideo = "../assets/videos/Video1.mp4";";
 
 window.addEventListener("load", () => {
   // 2-second black screen
