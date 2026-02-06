@@ -5,6 +5,8 @@ const videos = [
 ];
 
 const player = document.getElementById("videoPlayer");
+const storyText = document.querySelector(".story-text");
+
 let current = 0;
 
 function playVideo(index) {
@@ -29,3 +31,10 @@ player.addEventListener("ended", () => {
 });
 
 playVideo(current);
+
+/* TEXT FADE-IN ON SCROLL */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > window.innerHeight) {
+    storyText.classList.add("visible");
+  }
+});
