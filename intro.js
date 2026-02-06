@@ -3,24 +3,20 @@ const coffee = document.getElementById("coffee");
 const sunrise = document.getElementById("sunrise");
 const fade = document.getElementById("fade");
 
-// Start on tap
+// Tap to start
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   coffee.play();
 });
 
-// After Coffee ends
+// Coffee ends → Sunrise starts
 coffee.addEventListener("ended", () => {
   coffee.style.display = "none";
   sunrise.style.display = "block";
   sunrise.play();
 });
 
-// After Sunrise ends → fade to black then go to main page
+// Sunrise ends → fade to black
 sunrise.addEventListener("ended", () => {
-  fade.style.opacity = "1"; // fade overlay
-
-  setTimeout(() => {
-    window.location.href = "Mainpage/index.html"; // navigate to main page
-  }, 600);
+  fade.style.opacity = "1"; // full black overlay
 });
